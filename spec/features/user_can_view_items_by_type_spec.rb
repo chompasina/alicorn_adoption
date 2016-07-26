@@ -19,7 +19,7 @@ RSpec.feature "Visitor views type page" do
       land_type = Type.create!(name: "Terrestrial")
       creature_1 = land_type.creatures.create!(name: "Unicorn", price: 200.00)
       sea_type = Type.create!(name: "Aquatic")
-      creature_2 = sea_type.creatures.create!(name: "Loch Ness Monster", price: 500.00)
+      creature_2 = sea_type.creatures.create!(name: "Nessie", price: 500.00)
       
       visit root_path
       click_on "Terrestrial"
