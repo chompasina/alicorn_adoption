@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor can add items to cart" do
-  scenario "they click to add an item to their cart" do 
+  skip scenario "they click to add an item to their cart" do 
     Creature.create(
       name: "Hippogriff",
       price: "500.00"
