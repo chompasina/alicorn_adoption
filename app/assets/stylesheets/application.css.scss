@@ -1,0 +1,41 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@red = #ff0000;
+
+body {
+  color: #212121;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+h1 {
+  color: #ff0000;
+}
+
+//*** HOMEPAGE ***/
+
+.sidebar-nav {
+  background-color: #000000;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 100px;
+  position: fixed;
+  width: 183px;
+  z-index: 2;
+  }
+
+.top-nav {
+  background-color: #ff0000;
+  vertical-align: top;
+  z-index: 1;
+}
+
+.main {
+  margin-top: 45px;
+}
+
+.top-nav-list {
+  display: inline-block;
+  list-style: none;
+}

@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" >
+  
   <title>AlicornAdoption</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+
 </head>
 <body>
+  
+<nav class="top-nav navbar navbar-default navbar-fixed-top">
+  <div class="container col-sm-offset-10 col-sm-2">
+      <ul class="top-nav-list">
+        <li>Cart |</li>
+        <li>Login</li>
+      </ul>
+  </div>
+</nav> 
 
-<%= yield %>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="sidebar-nav nav nav-tabs nav-stacked">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+  </div>
+
+  <div class="main col-md-9">
+    <%= yield %>
+  </div>
+
+</div>
 
 </body>
 </html>
