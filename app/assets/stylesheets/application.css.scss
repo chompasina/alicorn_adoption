@@ -1,3 +1,51 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #212121;
+}
+
+
+h1 {
+  color: red;
+}
+
+/*** HOMEPAGE ***/
+
+#sidebar-nav {
+  background-color: #000;
+  padding-top: 100px;
+  position: fixed;
+  width: 183px;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+  }
+
+#top-nav {
+  vertical-align: top;
+  background-color: red;
+  z-index: 1;
+}
+
+#main {
+  margin-top: 45px;
+}
+
+#top-nav-list {
+ list-style: none;
+ display: inline-block;
+}
+
+
+/*
+.login-page {
+  background-image: url("/img/homepage.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+}*/
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
