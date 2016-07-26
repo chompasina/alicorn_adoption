@@ -2,7 +2,6 @@
 
 <div class="main">
   <% @creatures.each do |creature| %>
-    <%= image_tag("#{creature.name}.jpg", width: 400) %> 
     <%= image_tag("#{creature.name}.png", width: 400) %>
     <%= link_to creature.name, creature_path(creature) %>
   <% end %>
