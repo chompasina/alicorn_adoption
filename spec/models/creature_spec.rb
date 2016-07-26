@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Creature, type: :model do
   it "has a valid factory" do
@@ -9,4 +9,7 @@ RSpec.describe Creature, type: :model do
     FactoryGirl.build(:creature, name: nil).should_not be_valid
   end
 
+  it "is invalid without a price" do
+    FactoryGirl.build(:creature, price: nil).should_not be_valid
+  end
 end
