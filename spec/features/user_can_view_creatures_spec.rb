@@ -12,5 +12,4 @@ RSpec.feature "Visitor sees the home page of the application" do
     expect(page).to have_content("Unicorn")
     expect(page).to have_content("Centaur")
   end
-
 end
