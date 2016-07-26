@@ -31,6 +31,3 @@ context "Visitor wants to see another type of creature" do
     expect(page).to have_content("Loch Ness Monster")
   end
 end
-  
-  
-  

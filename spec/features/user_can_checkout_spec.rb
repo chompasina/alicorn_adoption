@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'User buys new sponsorship' do
+RSpec.feature "Visitor buys new sponsorship" do
+  scenario "they want to checkout" do
   Creature.create(
     name: "Hippogriff",
     price: "500.00"

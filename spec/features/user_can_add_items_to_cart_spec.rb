@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Visitor can add items to cart" do
+  scenario "they click to add an item to their cart" do 
   Creature.create(
     name: "Hippogriff",
     price: "500.00"
@@ -20,5 +21,3 @@ RSpec.feature "Visitor can add items to cart" do
     expect(page).to have_content("Cart: 2")
   end
 end
-
-  
