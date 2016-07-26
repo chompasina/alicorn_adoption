@@ -1,0 +1,7 @@
+<h1>Welcome to Alicorn Adoption!</h1>
+
+<div class="main">
+  <% @creatures.each do |creature| %>
+    <%= link_to creature.name, creature_path(creature) %>
+  <% end %>
+</div>
