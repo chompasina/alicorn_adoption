@@ -26,8 +26,9 @@
   <div class="col-md-3">
     <ul class="sidebar-nav nav nav-tabs nav-stacked">
       <li role="presentation" class="active"><a href="#">Home</a></li>
-      <li role="presentation"><a href="#">Profile</a></li>
-      <li role="presentation"><a href="#">Messages</a></li>
+        <%= creature_types.each do |type| %>
+          <li role="presentation"><%= link_to type.name, type_path(type) %></li>
+        <% end %>
     </ul>
   </div>
 
