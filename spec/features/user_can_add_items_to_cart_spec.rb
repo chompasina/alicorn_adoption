@@ -1,5 +1,5 @@
 require 'rails_helper'
-# 
+#
 # As a visitor
 # When I visit any page with an item on it
 # I should see a link or button for "Add to Cart"
