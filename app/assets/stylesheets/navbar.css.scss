@@ -1,0 +1,28 @@
+//*** SIDEBAR NAV ***/
+
+.sidebar-nav {
+  background-color: #000000;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 100px;
+  position: fixed;
+  width: 183px;
+  z-index: 2;
+  }
+  
+//*** TOP NAV ***/
+
+.top-nav.navbar.navbar-default.navbar-fixed-top {
+  background-color: #ff0000;
+  vertical-align: top;
+  z-index: 1;
+}
+
+.top-nav-list {
+  display: inline-block;
+  list-style: none;
+}
+
+.main {
+  margin-top: 45px;
+}
