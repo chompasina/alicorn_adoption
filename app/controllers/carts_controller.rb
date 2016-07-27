@@ -12,4 +12,14 @@ class CartsController < ApplicationController
   def index
     @creatures = @cart.creatures
   end
+  
+  def destroy
+    @creature = Creature.find(params[:creature_id])
+    session[:cart] = @cart.contents
+    session[:cart][@creature.id] = 0
+    session[:removed_creature] = @creature.id
+    require 'pry'; binding.pry
+    flash[:delete] = "Successfully removed #{@creature.name} from your cart"
+    redirect_to cart_path
+  end
 end

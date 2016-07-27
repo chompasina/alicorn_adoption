@@ -35,6 +35,7 @@
 
   <div class="main col-md-9">
     <%= flash[:notice] %>
+    <%= link_to flash[:delete], creature_path(session[:removed_creature].to_i) %>
     <%= yield %>
   </div>
 
