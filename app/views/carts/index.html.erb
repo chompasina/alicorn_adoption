@@ -8,6 +8,6 @@
 <% end %>
 
 <p>
-  Total: 
+  Total: <%= number_to_currency(Order.total_price(session[:cart])) %>
 </p>
 

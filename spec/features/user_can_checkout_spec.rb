@@ -21,16 +21,13 @@ RSpec.feature "Visitor adds items to cart" do
       expect(page).to have_content("Cart: 2")
       
       click_on "Cart: 2"
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       
-      expect(page).to have_content()
+      expect(page).to have_content(creature.description)
       expect(page).to have_css(:img)
       expect(page).to have_content(creature.name)
       expect(page).to have_content(creature.price)
       
-      checkout = Order.last
-      expect(Order.count).to eq(1)
-      expect(order.user_name).to eq("Tommasina")
-      expect(order.checkout_creatures.first.quantity).to eq(2)
-  end
+      expect(page).to have_content("Total: $1,000.00")
+   end
 end

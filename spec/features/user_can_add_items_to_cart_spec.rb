@@ -14,12 +14,11 @@ RSpec.feature "Visitor can add an item to cart" do
       
       click_link "Cart: 1"
       
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       expect(page).to have_content(creature.name)
       expect(page).to have_content(creature.price)
       expect(page).to have_content(creature.description)
       expect(page).to have_css(:img)
       expect(page).to have_content("Total:")
-      expect(page).to have_content(order.total)
    end
 end
