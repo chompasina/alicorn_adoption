@@ -24,9 +24,3 @@ RSpec.feature "Visitor can add an item to cart" do
 end
       
   # scenario "when they are on the homepage, they can click to add an item to their cart" do 
-
-  #     click_button "Sponsor me"
-  # 
-  #     expect(page).to have_content("You now have 2 sponsored Hippogriffs")
-  #     expect(page).to have_content("Cart: 2")
-  # end
