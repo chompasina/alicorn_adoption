@@ -10,7 +10,7 @@ RSpec.feature "Visitor can add an item to cart" do
       click_button "Sponsor me"
 
       expect(page).to have_link("Cart: 1")
-      expect(page).to have_content("You now have sponsored 1 #{creature.name}")
+      expect(page).to have_content("You now have selected 1 #{creature.name}")
       
       click_link "Cart: 1"
       

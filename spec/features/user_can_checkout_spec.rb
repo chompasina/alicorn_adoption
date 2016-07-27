@@ -12,12 +12,12 @@ RSpec.feature "Visitor adds items to cart" do
 
       click_button "Sponsor me"
 
-      expect(page).to have_content("You now have sponsored 1 Hippogriff")
+      expect(page).to have_content("You now have selected 1 Hippogriff")
       expect(page).to have_content("Cart: 1")
 
       click_button "Sponsor me"
 
-      expect(page).to have_content("You now have sponsored 2 Hippogriffs")
+      expect(page).to have_content("You now have selected 2 Hippogriffs")
       expect(page).to have_content("Cart: 2")
       
       click_on "Cart: 2"
