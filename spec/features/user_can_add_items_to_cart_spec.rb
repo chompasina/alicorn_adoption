@@ -10,7 +10,7 @@ require 'rails_helper'
 # And there should be a "total" price for the cart that should be the sum of all items in the cart
 
 RSpec.feature "Visitor can add an item to cart" do
-   scenario "when they are on the homepage, they can click to add an item to their cart" do 
+   scenario "when on the homepage, visitor clicks to add an item to cart" do 
     creature = FactoryGirl.create(:creature)
 
       visit root_path
