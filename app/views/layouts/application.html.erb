@@ -16,7 +16,7 @@
 <nav class="top-nav navbar navbar-default navbar-fixed-top">
   <div class="container col-sm-offset-10 col-sm-2">
       <ul class="top-nav-list">
-        <li>Cart |</li>
+        <li><%= link_to "Cart: #{@cart.total}", carts_path %>|</li>
         <li>Login</li>
       </ul>
   </div>
@@ -33,6 +33,7 @@
   </div>
 
   <div class="main col-md-9">
+    <%= flash[:notice] %>
     <%= yield %>
   </div>
 
