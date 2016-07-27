@@ -11,7 +11,8 @@ RSpec.feature "User wants to remove item from cart" do
     
     click_link "Remove"
     
-    expect(page).to have_content("Successfully removed #{creature.name} from your cart")
+    expected_message = "Successfully removed #{creature.name} from your cart"
+    expect(page).to have_content(expected_message)
     expect(page).to have_link(creature.name, creature_path(creature))
     expect(page).to have_content("Total: $0.00")
   end
