@@ -39,7 +39,8 @@ class Seed
        ["Unicorn", 800.00]
       ],
       "Aquatic" => [
-        ["Mermaid", 400.00]
+        ["Mermaid", 400.00],
+        ["Nessie", 950.00]
       ],
       "Aerial" =>
       [["Alicorn", 650.00],
