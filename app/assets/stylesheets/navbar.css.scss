@@ -1,7 +1,6 @@
 //*** SIDEBAR NAV ***/
-
 .sidebar-nav {
-  background-color: #000000;
+  background-color: $sidebar-color;
   height: 100%;
   overflow: hidden;
   padding-top: 100px;
@@ -11,9 +10,8 @@
   }
   
 //*** TOP NAV ***/
-
 .top-nav.navbar.navbar-default.navbar-fixed-top {
-  background-color: #ff0000;
+  background-color: $top-nav-color;
   vertical-align: top;
   z-index: 1;
 }

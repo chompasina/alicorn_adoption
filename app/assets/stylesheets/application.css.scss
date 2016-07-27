@@ -18,13 +18,15 @@
 @import "bootstrap";
 
 
-$font-stack:    'Playfair Display SC', serif;
+$font-stack: 'Playfair Display SC', serif;
 $primary-color: #212121;
-$title-color:   #8BA870;
+$sidebar-color: #000000;
+$top-nav-color: #ff0000;;
+$title-color: #8Ba870;
 
 body {
-  font-family:  $font-stack;
-  color:        $primary-color;
+  color: $primary-color;
+  font-family: $font-stack;
 }
 
 h1 {
