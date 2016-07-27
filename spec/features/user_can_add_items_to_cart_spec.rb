@@ -22,5 +22,3 @@ RSpec.feature "Visitor can add an item to cart" do
       # expect(page).to have_content(order.total)
    end
 end
-      
-  # scenario "when they are on the homepage, they can click to add an item to their cart" do 
