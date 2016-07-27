@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :creatures, only: [:index, :show]
   resources :types, only: [:show]
   resources :carts, only: [:create, :index]
+  
+  get "/#{types}"
 
 end

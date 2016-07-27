@@ -3,8 +3,11 @@
 <% @creatures.each do |creature| %>
   <p><%= creature.name %></p>
   <p><%= creature.price %></p>
-  <!-- <p><%#= creature.description %></p> -->
+  <p><%= creature.description %></p>
   <%= image_tag("#{creature.name}.png", width: 100) %>
 <% end %>
 
+<p>
+  Total: 
+</p>
 

@@ -16,19 +16,5 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-
-$font-stack: 'Playfair Display SC', serif;
-$primary-color: #212121;
-$sidebar-color: #000000;
-$top-nav-color: #ff0000;;
-$title-color: #8Ba870;
-
-body {
-  color: $primary-color;
-  font-family: $font-stack;
-}
-
-h1 {
-  color: $title-color;
-}
+@import "navbar";
+@import "creatures_index";
