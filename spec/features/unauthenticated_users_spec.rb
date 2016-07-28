@@ -13,15 +13,13 @@ RSpec.feature "Registered user " do
   end
   
   scenario "they cannot view the admin dashboard" do
-    
+  #this is being duplicated in the admin dashboard test.  
     visit '/admin/dashboard'
     
-    #maybe use errors.full_message? for this assertion?
+    expect(page.status_code).to eq(404)
     expect(page).to have_content("The page you were looking for doesn't exist.")
     
     expect(page).to_not have_content("Admin Dashboard")
-    
-    # I cannot make myself an administrator.    
   end
 end
 
