@@ -3,12 +3,16 @@
 <div class="cart-items">
   <% @creatures.each do |creature| %>
     <p><%= creature.name %></p>
-    <p><%= creature.price %></p>
+    <p>price:<%= creature.price %></p>
+    <p>quantity: <%= @cart.count_of(creature.id) %></p>
     <p><%= creature.description %></p>
+    <%= button_to "+", cart_path(add: creature.id), method: :put %>
+    <%= button_to "-", cart_path(remove: creature.id), method: :put %>
     <%= link_to "Remove", cart_path(creature_id: creature.id), method: :delete %>
     <%= image_tag("#{creature.name}.png", width: 100) %>
   <% end %>
 </div>
+<%= raw(flash[:delete]) %>
 
 <div class="cart-total">
   <p>
