@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
     total_price = 0
     if !cart.nil?
       cart.each do |id, qty| 
-        total_price += qty*Creature.find(id).price
+        total_price += qty * Creature.find(id).price
       end 
     total_price
     end
