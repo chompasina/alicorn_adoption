@@ -18,7 +18,12 @@
   <div class="container col-sm-offset-10 col-sm-2">
       <ul class="top-nav-list">
         <li><%= link_to "Cart: #{@cart.total}", cart_path %>|</li>
-        <li>Login</li>
+        <!-- <li><%#= link_to "Login", new_session_path %></li> -->
+        <% if current_user %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Register", new_user_path %></li>
+        <% end %>
       </ul>
   </div>
 </nav> 
