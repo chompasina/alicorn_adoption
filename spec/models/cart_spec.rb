@@ -27,8 +27,8 @@ RSpec.describe Cart, type: :model do
   end
   
   it "should return creatures in the cart" do
-    FactoryGirl.create(:creature)
-    one_creature_cart = Cart.new("1" => 1)
+    creature = FactoryGirl.create(:creature)
+    one_creature_cart = Cart.new(creature.id.to_s => 1)
     one_creature_cart.creatures.count.should == 1
   end
 end
