@@ -28,11 +28,11 @@ class Seed
   end
   
   def type_names
-    ["Terrestrial", "Aquatic", "Aerial"]
+    ["terrestrial", "aquatic", "aerial"]
   end
   
   def creatures
-    { "Terrestrial" =>
+    { "terrestrial" =>
       [["Basilisk", 350.00],
        ["Centaur", 200.00],
        ["Dwarf", 150.00],
@@ -42,11 +42,11 @@ class Seed
        ["Minotaur", 300.00],
        ["Unicorn", 800.00]
       ],
-      "Aquatic" => [
+      "aquatic" => [
         ["Mermaid", 400.00],
         ["Nessie", 950.00]
       ],
-      "Aerial" =>
+      "aerial" =>
       [["Alicorn", 650.00],
        ["Dragon", 1050.00],
        ["Fairy", 75.00],

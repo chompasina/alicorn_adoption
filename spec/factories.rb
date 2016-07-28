@@ -3,7 +3,7 @@ require 'faker'
 FactoryGirl.define do
   factory :user do
     username "MyString"
-    password_digest "MyString"
+    password "MyString"
     email "MyString"
     admin false
   end
