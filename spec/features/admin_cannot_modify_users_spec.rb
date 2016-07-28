@@ -31,4 +31,4 @@ RSpec.feature "Admin is logged in and wants to modify account data" do
     
     expect(page).to_not have_content("Edit my information")
   end
-end  
+end
