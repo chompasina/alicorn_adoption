@@ -21,7 +21,7 @@ class Cart
   def creatures
     creatures = []
     contents.keys.each do |id|
-      creatures << Creature.find(id)
+      creatures << Creature.find(id) unless contents[id] == 0
     end
     creatures
   end

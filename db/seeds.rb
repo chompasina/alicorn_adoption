@@ -19,7 +19,11 @@ class Seed
   def create_creatures(type)
     creatures_of_type = creatures[type.name]
     creatures_of_type.each do |creature|
-      type.creatures.create(name: creature[0], price: creature[1])
+      type.creatures.create(
+        name: creature[0], 
+        price: creature[1],
+        description: Faker::Lorem.paragraph
+        )
     end
   end
   
@@ -52,7 +56,6 @@ class Seed
       ]
     }
   end
-  
 end
 
 Seed.start

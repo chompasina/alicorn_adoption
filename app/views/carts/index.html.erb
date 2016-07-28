@@ -1,6 +1,7 @@
 <h1>Cart Summary</h1>
 
 <div class="cart-items">
+  <%= raw(flash[:delete]) %>
   <% @creatures.each do |creature| %>
     <p><%= creature.name %></p>
     <p>price:<%= creature.price %></p>
@@ -12,7 +13,6 @@
     <%= image_tag("#{creature.name}.png", width: 100) %>
   <% end %>
 </div>
-<%= raw(flash[:delete]) %>
 
 <div class="cart-total">
   <p>
