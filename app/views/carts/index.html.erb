@@ -1,10 +1,17 @@
 <h1>Cart Summary</h1>
 
-<% @creatures.each do |creature| %>
-  <p><%= creature.name %></p>
-  <p><%= creature.price %></p>
-  <!-- <p><%#= creature.description %></p> -->
-  <%= image_tag("#{creature.name}.png", width: 100) %>
-<% end %>
+<div class="cart-items">
+  <% @creatures.each do |creature| %>
+    <p><%= creature.name %></p>
+    <p><%= creature.price %></p>
+    <p><%= creature.description %></p>
+    <%= link_to "Remove", cart_path(creature_id: creature.id), method: :delete %>
+    <%= image_tag("#{creature.name}.png", width: 100) %>
+  <% end %>
+</div>
 
-
+<div class="cart-total">
+  <p>
+    Total: <%= number_to_currency(Order.total_price(session[:cart])) %>
+  </p>
+</div>

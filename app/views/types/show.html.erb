@@ -4,5 +4,6 @@
   <% @creatures.each do |creature| %>
     <%= image_tag("#{creature.name}.png", width: 400) %>
     <%= link_to creature.name, creature_path(creature) %>
+    <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-danger" %>
   <% end %>
 </div>

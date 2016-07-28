@@ -5,6 +5,7 @@
   
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
   
   <link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic' rel='stylesheet' type='text/css'>
   
@@ -16,7 +17,7 @@
 <nav class="top-nav navbar navbar-default navbar-fixed-top">
   <div class="container col-sm-offset-10 col-sm-2">
       <ul class="top-nav-list">
-        <li><%= link_to "Cart: #{@cart.total}", carts_path %>|</li>
+        <li><%= link_to "Cart: #{@cart.total}", cart_path %>|</li>
         <li>Login</li>
       </ul>
   </div>
@@ -25,15 +26,16 @@
 <div class="row">
   <div class="col-md-3">
     <ul class="sidebar-nav nav nav-tabs nav-stacked">
-      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><%= link_to "All Creature Types", "/" %></li>
         <% creature_types.each do |type| %>
-          <li role="presentation"><%= link_to type.name, type_path(type) %></li>
+          <li role="presentation"><%= link_to type.name, "/#{type.name}" %></li>
         <% end %>
     </ul>
   </div>
 
   <div class="main col-md-9">
     <%= flash[:notice] %>
+    <%= link_to flash[:delete], creature_path(session[:removed_creature].to_i) %>
     <%= yield %>
   </div>
 
