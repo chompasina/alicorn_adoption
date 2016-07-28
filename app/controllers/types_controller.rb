@@ -1,8 +1,7 @@
 class TypesController < ApplicationController
   
   def show
-    # require 'pry'; binding.pry
-    @type = Type.find_by(name: params[:name].downcase.capitalize)
+    @type = Type.find_by(name: params[:name])
     @creatures = @type.creatures
   end
 end

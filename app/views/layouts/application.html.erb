@@ -34,7 +34,7 @@
     <ul class="sidebar-nav nav nav-tabs nav-stacked">
       <li role="presentation"><%= link_to "All Creature Types", "/" %></li>
         <% creature_types.each do |type| %>
-          <li role="presentation"><%= link_to type.name, "/#{type.name}" %></li>
+          <li role="presentation"><%= link_to type.name.capitalize, "/#{type.name}" %></li>
         <% end %>
     </ul>
   </div>
