@@ -1,5 +1,4 @@
 class Order < ActiveRecord::Base
-
   def self.total_price(cart)
     total_price = 0
     if !cart.nil?
