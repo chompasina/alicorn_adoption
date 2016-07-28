@@ -8,7 +8,6 @@ RSpec.describe Cart, type: :model do
   }
   cart = Cart.new(session_input)
 
-  
   it "has a contents hash upon creation" do
     empty_cart = Cart.new({})
     empty_cart.contents.should_not == nil
