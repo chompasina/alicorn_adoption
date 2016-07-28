@@ -10,7 +10,7 @@ RSpec.describe Cart, type: :model do
 
   it "has a contents hash upon creation" do
     empty_cart = Cart.new({})
-    empty_cart.contents.should_not == nil
+    empty_cart.contents.should_not nil?
   end
   
   it "should be able to add a creature" do
