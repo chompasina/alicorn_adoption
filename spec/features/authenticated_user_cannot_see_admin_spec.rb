@@ -10,9 +10,24 @@ RSpec.feature "Authenticated user cannot see admin privileges" do
   context "user is authenticated" do
     scenario "user cannot see other user or admin pages" do 
       creature = FactoryGirl.create(:creature)
-      authenticated_user = User.create!(username: "Casey", password: "password", email: "casey@gmail.com", admin: false)
-      other_user = User.create!(username: "Andrew", password: "password", email: "andrew@gmail.com", admin: false)
-      admin = User.create!(username: "admin", password: "admin", email: "admin@gmail.com", admin: true)
+      authenticated_user = User.create!(
+        username: "Casey", 
+        password: "password", 
+        email: "casey@gmail.com", 
+        admin: false
+      )
+      other_user = User.create!(
+        username: "Andrew", 
+        password: "password", 
+        email: "andrew@gmail.com", 
+        admin: false
+      )
+      admin = User.create!(
+        username: "admin", 
+        password: "admin", 
+        email: "admin@gmail.com", 
+        admin: true
+      )
       
       visit root_path
       click_on "Login"

@@ -7,8 +7,13 @@ require 'rails_helper'
 RSpec.feature "Admin can login" do
   scenario "Admin can see admin privileges" do 
     creature = FactoryGirl.create(:creature)
-    admin = User.create!(username: "admin", password: "adminpw", email: "admin@gmail.com", admin: true)
-    
+    admin = User.create!(
+      username: "admin", 
+      password: "adminpw", 
+      email: "admin@gmail.com", 
+      admin: true
+      )
+
     visit root_path
     click_on "Login"
     fill_in "session_username", with: "admin"
