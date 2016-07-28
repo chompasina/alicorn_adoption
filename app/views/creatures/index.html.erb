@@ -1,9 +1,11 @@
 <h1>Welcome to Alicorn Adoption!</h1>
 
-<div class="main">
+<div class="main col-md-9">
   <% @creatures.each do |creature| %>
-    <%= image_tag("#{creature.name}.png", width: 400) %>
-    <%= link_to creature.name, creature_path(creature) %>
-      <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-danger" %>
+    <div class="main col-md-4 home-creature">
+      <%= image_tag("#{creature.name}.png", class: "img-index") %>
+      <%= link_to creature.name, creature_path(creature) %>
+        <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-danger" %>
+    </div>
   <% end %>
 </div>

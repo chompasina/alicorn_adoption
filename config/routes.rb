@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/login", to: "sessions#new"
   delete "/logout", to: "sessions#destroy"
+  get '/dashboard', to: "users#show"
   
   put "/cart", to: "carts#update"
   delete "/cart", to: "carts#destroy"
