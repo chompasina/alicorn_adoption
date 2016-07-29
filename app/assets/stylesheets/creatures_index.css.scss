@@ -3,15 +3,38 @@
 .main {
   margin-top: 45px;
 }
-
-.img-index {
-  width: 100%;
+// 
+.home-creature {
   height: 250px;
+  width: 200px;
 }
 
 .home-creature {
-  padding-left: 5%;
+  // border: dotted #ff0000;
+  // border-bottom: dotted #ff0000;
+  // background-color: #C2C2C2;
 }
+
+.home-creature-wrapper {
+  border: 1px solid #212121;
+}
+
+.home-creature-title-btn {
+  margin-bottom: 10px;
+}
+// .home-creature-name {
+//   padding-top: 100px;;
+// }
+
+.img-index {
+  max-width: 100%;
+
+}
+
+// .btn-creature {
+//   position: relative;
+//   margin-bottom: -10px;
+// }
 
 .form, .flash {
   margin-top: 5%;

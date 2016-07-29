@@ -41,7 +41,7 @@ RSpec.feature "Existing user has items in cart" do
     expect(page).to have_content("Order was successfully placed")
     expect(page).to have_content("Your Order:")
     expect(page).to have_content("Sponsorships:") #{creature.name}
-    expect(page).to have_content("Quantity: 1"
+    expect(page).to have_content("Quantity: 1")
     expect(page).to have_content("Total Price:")
   end
 end

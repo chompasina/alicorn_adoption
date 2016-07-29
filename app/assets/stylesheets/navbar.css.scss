@@ -1,9 +1,11 @@
 //*** SIDEBAR NAV ***/
 $font-stack: 'Playfair Display SC', serif;
-$primary-color: #212121;
+$primary-color: #464646;
 $sidebar-color: #000;
 $top-nav-color: #fff;
 $title-color: #8ba870;
+$link-color: #D0006F;
+$link-hover-color: #8ba870;
 
 body {
   color: $primary-color;
@@ -25,6 +27,11 @@ h1 {
   }
   
 //*** TOP NAV ***/
+
+.site-title {
+  text-align: center;
+}
+
 .top-nav.navbar.navbar-default.navbar-fixed-top {
   background-color: $top-nav-color;
   vertical-align: top;
@@ -34,6 +41,15 @@ h1 {
 .top-nav-list {
   display: inline-block;
   list-style: none;
+  text-align: center;
+}
+
+.top-nav-list > li > a {
+  color: $link-color;
+  text-decoration: none;
+}
+.top-nav-list > li > a:hover {
+  color: $link-hover-color;
 }
 
 .main {

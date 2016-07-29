@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-before do
-  land_type = Type.create!(name: "terrestrial")
-  creature_1 = land_type.creatures.create!(name: "Unicorn", price: 200.00)
-  creature_2 = type.creatures.create!(name: "Centaur", price: 150.00)
-end
-
 RSpec.feature "Authenticated user can view past orders" do
+  before(:all) do
+    land_type = Type.create!(name: "terrestrial")
+    creature_1 = land_type.creatures.create!(name: "Unicorn", price: 200.00)
+    creature_2 = type.creatures.create!(name: "Centaur", price: 150.00)
+  end
   context "User has multiple previous orders" do
     scenario "they see their page with their order history" do
       
