@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Only admin can access admin dashboard page" do
   context "admin logs in and accesses the admin dashboard" do
     scenario "they see the admin dashboard " do
-      user = User.create!(username: "Roberta", password: "password", email: "mozzie@gmail.com", admin: true)
+      user = User.create!(username: "Roberta", password: "password", email: "roberta@gmail.com", admin: true)
       
       visit login_path
       
@@ -13,7 +13,7 @@ RSpec.feature "Only admin can access admin dashboard page" do
       
       visit "/admin/dashboard"
       
-      within(:css, 'h2') do
+      within(:css, 'h1') do
         expect(page).to have_content("Admin Dashboard")
       end
     end
@@ -30,7 +30,7 @@ RSpec.feature "Only admin can access admin dashboard page" do
       click_button "Login"
       
       visit "/admin/dashboard"
-      
+
       expect(page.status_code).to eq(404)
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
