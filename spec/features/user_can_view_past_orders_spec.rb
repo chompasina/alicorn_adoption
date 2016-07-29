@@ -10,15 +10,28 @@ RSpec.feature "Authenticated user can view past orders" do
       user1 = User.create!(username: "Casey", password: "password", email: "casey@gmail.com")
       
       user1_order1 = user1.orders.create
-      order1_items = user1_order1.creatures_orders.create!(creature_id: creature_1.id, quantity: 2)
+      order1_items = user1_order1.creatures_orders.create!(
+        creature_id: creature_1.id, 
+        quantity: 2
+      )
     
       user1_order2 = user1.orders.create
-      order1_items = user1_order2.creatures_orders.create!(creature_id: creature_1.id, quantity: 1)
+      order1_items = user1_order2.creatures_orders.create!(
+        creature_id: creature_1.id, 
+        quantity: 1
+      )
       
-      user2 = User.create!(username: "Mozzie", password: "password1", email: "mozzie@gmail.com")
+      user2 = User.create!(
+        username: "Mozzie", 
+        password: "password1", 
+        email: "mozzie@gmail.com"
+      )
       
       user2_order1 = user2.orders.create
-      order1_items = user2_order1.creatures_orders.create!(creature_id: creature_2.id, quantity: 1)
+      order1_items = user2_order1.creatures_orders.create!(
+        creature_id: creature_2.id, 
+        quantity: 1
+      )
       
       visit root_path
       click_on "Login"
