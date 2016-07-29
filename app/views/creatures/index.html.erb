@@ -1,17 +1,14 @@
-<h1>All Creatures</h1>
+<em><h1 class="page-title">All Creatures</h1></em>
 
 <div class="main col-md-12">
-<!-- <div class="row"> -->
   <% @creatures.each do |creature| %>
-    <div class="col-md-4 home-creature-wrapper">
-      <div class="col-md-4 home-creature">
-      <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" alt="...">
+      <div class="container col-md-4 home-creature-wrapper">
+        <div class="col-md-4 home-creature-img media">
+          <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" alt="...">
+        <em><%= link_to creature.name, creature_path(creature), class: "home-creature-name" %></em></p>
+          <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-creature" %>
+      </div>
     </div>
-      <!-- <%= image_tag("#{creature.name}.png", class: "img-index media-object") %> -->
-    <div class="col-md-4 home-creature-title-btn">
-      <%= link_to creature.name, creature_path(creature), class: "home-creature-name" %>
-        <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-creature" %>
-    </div>
-    </div>
+  
   <% end %>
 </div>

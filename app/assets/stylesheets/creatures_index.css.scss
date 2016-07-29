@@ -1,40 +1,42 @@
+$primary-color: #43413d;
+
 //*** HOMEPAGE GRID ***/
 
 .main {
   margin-top: 45px;
 }
 // 
-.home-creature {
-  height: 250px;
-  width: 200px;
-}
-
-.home-creature {
-  // border: dotted #ff0000;
-  // border-bottom: dotted #ff0000;
-  // background-color: #C2C2C2;
-}
-
 .home-creature-wrapper {
-  border: 1px solid #212121;
+  max-height: 1000px;
+  margin-bottom: 50px;
 }
 
-.home-creature-title-btn {
-  margin-bottom: 10px;
+.img-index {
+  height: 250px;
+  width: 300px;
+  border-bottom: 1px solid grey;
 }
-// .home-creature-name {
-//   padding-top: 100px;;
-// }
+
+.home-creature-img {
+  height: 400px;
+  width: 250px;
+  // border-bottom: 1px solid grey;
+}
+
 
 .img-index {
   max-width: 100%;
-
 }
 
-// .btn-creature {
-//   position: relative;
-//   margin-bottom: -10px;
-// }
+.home-creature-name {
+  color: $primary-color;
+}
+
+.btn-creature {
+  background-color: transparent;
+  color:  #3c948b;
+  border: 1px solid #3c948b;
+}
 
 .form, .flash {
   margin-top: 5%;

@@ -1,6 +1,6 @@
 //*** SIDEBAR NAV ***/
 $font-stack: 'Playfair Display SC', serif;
-$primary-color: #464646;
+$primary-color: #43413d;
 $sidebar-color: #000;
 $top-nav-color: #fff;
 $title-color: #8ba870;
@@ -10,14 +10,21 @@ $link-hover-color: #8ba870;
 body {
   color: $primary-color;
   font-family: $font-stack;
+  
 }
 
 h1 {
-  color: $title-color;
+  color: #43413d;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
 .sidebar-nav {
-  background-color: $sidebar-color;
+  // background-color: $sidebar-color;
+  background-image: url("test3.jpg");
   height: 100%;
   overflow: hidden;
   padding-top: 100px;
