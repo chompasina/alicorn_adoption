@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728014259) do
+ActiveRecord::Schema.define(version: 20160729020415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,10 +27,23 @@ ActiveRecord::Schema.define(version: 20160728014259) do
 
   add_index "creatures", ["type_id"], name: "index_creatures_on_type_id", using: :btree
 
-  create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "creatures_orders", id: false, force: :cascade do |t|
+    t.integer "creature_id", null: false
+    t.integer "order_id",    null: false
+    t.integer "quantity"
   end
+
+  add_index "creatures_orders", ["creature_id", "order_id"], name: "index_creatures_orders_on_creature_id_and_order_id", using: :btree
+  add_index "creatures_orders", ["order_id", "creature_id"], name: "index_creatures_orders_on_order_id_and_creature_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.decimal  "total_price"
+    t.integer  "user_id"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "types", force: :cascade do |t|
     t.string   "name"
@@ -48,4 +61,5 @@ ActiveRecord::Schema.define(version: 20160728014259) do
   end
 
   add_foreign_key "creatures", "types"
+  add_foreign_key "orders", "users"
 end

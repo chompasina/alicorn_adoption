@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :password, presence: true
   validates :username, presence: true
+  has_many :orders
+  
+  def to_param
+  end
   
   private
 

@@ -20,7 +20,7 @@ RSpec.feature "Guest user needs to register to checkout" do
       
       expect(current_path).to eq(new_user_path)
       click_on "Create Account"
-      expect(current_path).to eq(user_path(User.first))
+      expect(current_path).to eq(dashboard_path(User.first))
       
       visit cart_path
       

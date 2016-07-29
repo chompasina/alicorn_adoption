@@ -1,4 +1,8 @@
 class Order < ActiveRecord::Base
+  has_many :creatures_orders
+  has_many :creatures, through: :creatures_orders
+  belongs_to :user
+  
   def self.total_price(cart)
     total_price = 0
     unless cart.nil?
