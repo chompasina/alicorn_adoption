@@ -19,3 +19,12 @@
     Total: <%= number_to_currency(Order.total_price(session[:cart])) %>
   </p>
 </div>
+
+<div class="btn-default">
+  <% if current_user %>
+    <%= button_to "Checkout", orders_path(contents: session[:cart]), method: :create %>
+  <% else %>
+    <%= button_to "Login to Checkout", login_path, method: :get %>
+    <%= button_to "Register to Checkout", new_user_path, method: :get %>
+  <% end %>
+</div>
