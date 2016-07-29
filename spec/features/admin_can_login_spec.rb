@@ -1,7 +1,3 @@
-# As an Admin
-# When I log in
-# Then I am redirected to "/admin/dashboard"
-
 require 'rails_helper'
 
 RSpec.feature "Admin can login" do
@@ -22,10 +18,6 @@ RSpec.feature "Admin can login" do
     
     expect(admin.admin).to eq(true)
     expect(page).to have_content("Logged in as admin")
-    expect(current_path).to eq('/admin/dashboard')
-    
-    visit root_path
-    expect(page).to have_content("Add Creatures")
-    expect(page).to have_content("Add Admin")    
+    expect(current_path).to eq('/admin/dashboard')  
   end
 end

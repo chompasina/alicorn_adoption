@@ -3,5 +3,7 @@ class Creature < ActiveRecord::Base
   validates :price, presence: true
   
   belongs_to :type  
+  has_many :creatures_orders
+  has_many :orders, through: :creatures_orders
   # validates :type, presence: true
 end

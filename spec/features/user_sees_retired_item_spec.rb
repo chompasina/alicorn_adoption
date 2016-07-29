@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User views a creature that has been retired" do
-  scenario "and they see the creature page, but can't add it to the cart" do
+  xscenario "and they see the creature page, but can't add it to the cart" do
     creature = FactoryGirl.create(:creature)
     creature.retire
     

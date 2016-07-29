@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Registered user " do
-  scenario "they cannot see user's private page" do
+  xscenario "they cannot see user's private page" do
     user = User.create!(username: "Mozzie", password: "password1", email: "mozzie@gmail.com")
     
     visit dashboard_path

@@ -8,7 +8,7 @@ require 'rails_helper'
 
 RSpec.feature "Authenticated user cannot see admin privileges" do
   context "user is authenticated" do
-    scenario "user cannot see other user or admin pages" do 
+    xscenario "user cannot see other user or admin pages" do 
       creature = FactoryGirl.create(:creature)
       authenticated_user = User.create!(
         username: "Casey", 
