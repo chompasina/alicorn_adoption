@@ -1,12 +1,20 @@
 class OrdersController < ApplicationController
+  helper_method :orders
   
   def index
-    @orders = current_user.orders
+    orders
   end
   
   def create
-    # byebug
-    @order = Order.create(params(session[:cart]))
-    redirect_to orders_path
+    @order = current_user.orders.create
+    params[:contents].each do |key, value|
+      @order.creatures_orders.create(creature_id: key, quantity: value)
+    end
+    flash[:notice] = "Order was successfully placed"
+    render :index
+  end
+  
+  def orders
+    @orders = current_user.orders
   end
 end

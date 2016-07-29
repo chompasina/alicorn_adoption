@@ -36,12 +36,14 @@ RSpec.feature "Existing user has items in cart" do
     expect(current_path).to eq('/cart')
   
     click_button "Checkout"
-    
-    expect(current_path).to eq(order_path)
+      
+    expect(current_path).to eq(orders_path)
     expect(page).to have_content("Order was successfully placed")
-    expect(page).to have_content("Your Order:")
-    expect(page).to have_content("Sponsorships:") #{creature.name}
-    expect(page).to have_content("Quantity: 1")
-    expect(page).to have_content("Total Price:")
+    expect(page).to have_content("Order Summary")
+    within('.table') do
+      expect(page).to have_content("#{creature.name}")
+      expect(page).to have_content("#{creature.price}")
+      # expect(page).to have_content("#{user.orders.first.total_price}")
+    end
   end
 end

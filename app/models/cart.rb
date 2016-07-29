@@ -14,8 +14,16 @@ class Cart
     contents[creature_id.to_s]
   end
   
-  def total
+  def total #change method name for total_quantity
     contents.values.sum
+  end
+  
+  def total_price
+    total_price = 0
+    contents.each do |id, qty| 
+      total_price += qty * Creature.find(id).price
+    end 
+    total_price
   end
   
   def creatures

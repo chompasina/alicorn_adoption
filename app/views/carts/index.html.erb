@@ -16,7 +16,11 @@
 
 <div class="cart-total">
   <p>
-    Total: <%= number_to_currency(Order.total_price(session[:cart])) %>
+    <% if @cart %>
+      Total: <%= number_to_currency(@cart.total_price) %>
+    <% else %>
+      Total: $0.00
+    <% end %>
   </p>
 </div>
 
