@@ -1,9 +1,5 @@
 class Admin::DashboardController < Admin::BaseController
   def index
-    unless current_admin?
-      response.status = 403
-      render file: "/public/403"
-    end
   end
   
   def edit

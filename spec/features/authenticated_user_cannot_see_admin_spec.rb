@@ -1,9 +1,3 @@
-# An authenticated user and the ability to add an admin user
-# As an Authenticated User
-# I cannot view another user's' private data (current or past orders, etc)
-# I cannot view the administrator screens or use admin functionality
-# I cannot make myself an admin
-
 require 'rails_helper'
 
 RSpec.feature "Authenticated user cannot see admin privileges" do
@@ -51,13 +45,12 @@ RSpec.feature "Authenticated user cannot see admin privileges" do
       
       visit orders_path
       expect(page).to have_content("Casey's Order History")
-      save_and_open_page
-      expect(page).to have_link("Order: #{user1_order1.id}")
+      expect(page).to have_content("Order #{user1_order1.id}")
       expect(page).to_not have_content("Mozzie's Order History")
-      expect(page).to_not have_link("Order: #{user2_order1.id}")
+      expect(page).to_not have_content("Order #{user2_order1.id}")
       
       visit admin_dashboard_index_path
-      expect(page.status_code).to eq(403)
+      expect(page.status_code).to eq(404)
     end
   end
 end

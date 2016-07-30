@@ -4,9 +4,9 @@ RSpec.feature "Existing user has items in cart" do
   scenario "they can place an order" do
     creature = FactoryGirl.create(:creature)
     user = User.create!(
-      username: "Casey", 
+      username: "Tom", 
       password: "password", 
-      email: "casey@gmail.com"
+      email: "tom@gmail.com"
     )
     
     visit root_path
@@ -16,7 +16,7 @@ RSpec.feature "Existing user has items in cart" do
   
     expect(current_path).to eq(login_path)
     
-    fill_in "session_username", with: "Casey"
+    fill_in "session_username", with: "Tom"
     fill_in "session_password", with: "password"
     click_button "Login"
     
@@ -26,7 +26,7 @@ RSpec.feature "Existing user has items in cart" do
       
     expect(current_path).to eq(orders_path)
     expect(page).to have_content("Order was successfully placed")
-    expect(page).to have_content("Order 1 Summary")
+    expect(page).to have_content("Order #{Order.last.id} Summary")
     within('.table') do
       expect(page).to have_content(creature.name)
       expect(page).to have_content(creature.price)
