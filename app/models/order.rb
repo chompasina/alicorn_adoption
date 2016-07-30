@@ -30,10 +30,10 @@ class Order < ActiveRecord::Base
   end
   
   def completed?
-    self.status == "completed"
+    status == "completed"
   end
   
   def canceled?
-    self.status == "canceled"
+    status == "canceled"
   end 
 end
