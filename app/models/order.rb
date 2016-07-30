@@ -12,7 +12,7 @@ class Order < ActiveRecord::Base
       name = Creature.find(item.creature_id).name
       price = Creature.find(item.creature_id).price
       qty = item.quantity
-      order_details[name] = [price, qty]
+      order_details[name] = [price, qty] unless qty == 0 
     end
     order_details
   end

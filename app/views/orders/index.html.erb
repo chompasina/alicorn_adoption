@@ -1,27 +1,25 @@
-<h2>Order Summary</h2>
-
-<table class="table">
-  <tr>
-    <th>Creature</th>
-    <th>Quantity</th>
-    <th>Price</th>
-  </tr>
-
-  <% @order.order_details.each do |key, value| %>
+<% if @order %>
+  <h2>Order Summary</h2>  
+  <table class="table">
     <tr>
-      <th><%= key %></th>
-      <th><%= value.last %></th>
-      <th><%= number_to_currency(value.first) %></th>
+      <th>Creature</th>
+      <th>Quantity</th>
+      <th>Price</th>
     </tr>
-  <% end %>
-
-  <tr>
-    <th><strong>Total</strong></th>
-    <th></th>
-    <th><strong><%= number_to_currency(@order.total_price) %></strong></th>
-  </tr>
-  
-</table>
+    <% @order.order_details.each do |key, value| %>
+      <tr>
+        <th><%= key %></th>
+        <th><%= value.last %></th>
+        <th><%= number_to_currency(value.first) %></th>
+      </tr>
+    <% end %>
+    <tr>
+      <th><strong>Total</strong></th>
+      <th></th>
+      <th><strong><%= number_to_currency(@order.total_price) %></strong></th>
+    </tr>
+  </table>
+<% end %>
 
 <h2><%= current_user.username %>'s Order History</h2>
 <% current_user.orders.each do |order| %>
