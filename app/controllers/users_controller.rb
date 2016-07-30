@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     if session[:user_id]
       @user = User.find(session[:user_id])
     else
+      response.status = 403
       render file: "/public/403"
     end
   end

@@ -35,6 +35,7 @@ RSpec.feature "Admin is logged in and wants to modify account data" do
     
     visit dashboard_path(user)
     
+    expect(page.status_code).to eq(403)
     expect(page).to_not have_content("Edit my information")
   end
 end
