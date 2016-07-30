@@ -3,13 +3,29 @@ class Order < ActiveRecord::Base
   has_many :creatures, through: :creatures_orders
   belongs_to :user
   
-  def self.total_price(cart)
-    total_price = 0
-    unless cart.nil?
-      cart.each do |id, qty| 
-        total_price += qty * Creature.find(id).price
-      end 
-    total_price
+  # after_update :assign_total_price
+  
+  def order_details
+    order_items = CreaturesOrder.where(order_id: self.id)
+    order_details = {}
+    order_items.each do |item|
+      name = Creature.find(item.creature_id).name
+      price = Creature.find(item.creature_id).price
+      qty = item.quantity
+      order_details[name] = [price, qty] unless qty == 0 
     end
+    order_details
+  end
+  
+  def total_price
+    total_price = 0
+    order_details.each do |key, value|
+      total_price += value.reduce(:*)
+    end
+    total_price
+  end
+  
+  def assign_total_price 
+    update_attribute(:total_price, total_price.to_i.to_f)
   end
 end

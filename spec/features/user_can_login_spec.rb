@@ -7,9 +7,7 @@ RSpec.feature "User needs to login to checkout" do
       user = User.create!(username: "Casey", password: "password", email: "casey@gmail.com")
       
       visit root_path
-      click_button "Sponsor me"
-      click_on "Cart: 1"
-      click_on "Login"
+      click_link "Login"
       
       expect(current_path).to eq(login_path)
       
@@ -33,7 +31,7 @@ RSpec.feature "User needs to login to checkout" do
       visit root_path
       click_button "Sponsor me"
       click_on "Cart: 1"
-      click_on "Login"
+      click_link "Login"
       
       expect(current_path).to eq(login_path)
       

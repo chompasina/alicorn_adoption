@@ -13,8 +13,13 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to '/admin/dashboard' if current_admin?
-      redirect_to dashboard_path(@user) unless current_admin?
+      if current_admin?
+        redirect_to '/admin/dashboard' 
+      elsif session[:cart]
+        redirect_to '/cart' 
+      else
+        redirect_to dashboard_path(@user)
+      end 
     else
       flash[:notice] = "Invalid Login"
       render :new      
