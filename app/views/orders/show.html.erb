@@ -1,0 +1,9 @@
+<%= render partial: "order_table", locals: { order: @order } %>
+
+<p>Order created on: <%= @order.created_at.strftime("%A, %d %b %Y %l:%M %p") %>
+<p>Current status: <%= @order.status.capitalize %></p>
+<% if @order.completed? %>
+  <p>Order completed on: <%= @order %></p>
+<% elsif @order.canceled? %>
+  <p>Order canceled on: <%= @order %></p>
+<% end %>
