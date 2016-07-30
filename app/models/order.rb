@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   has_many :creatures, through: :creatures_orders
   belongs_to :user
   
+  # after_update :assign_total_price
+  
   def order_details
     order_items = CreaturesOrder.where(order_id: self.id)
     order_details = {}
@@ -21,5 +23,9 @@ class Order < ActiveRecord::Base
       total_price += value.reduce(:*)
     end
     total_price
+  end
+  
+  def assign_total_price 
+    self.update_attribute(:total_price, total_price.to_i.to_f)
   end
 end

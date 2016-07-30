@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
     params[:contents].each do |key, value|
       @order.creatures_orders.create(creature_id: key, quantity: value)
     end
+    @order.assign_total_price
     flash[:notice] = "Order was successfully placed"
     render :index
   end
