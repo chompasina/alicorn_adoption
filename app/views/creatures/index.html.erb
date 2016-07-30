@@ -5,10 +5,13 @@
       <div class="container col-md-4 home-creature-wrapper">
         <div class="col-md-4 home-creature-img media">
           <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" alt="...">
-        <em><%= link_to creature.name, creature_path(creature), class: "home-creature-name" %></em></p>
+        <em><%= link_to creature.name, creature_path(creature), class: "home-creature-name" %></em></p>    
+        <% if creature.retired %>
+          <p>This creature can no longer be sponsored!</p>
+        <% else %>
           <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-creature" %>
+        <% end %>
       </div>
     </div>
-  
   <% end %>
 </div>
