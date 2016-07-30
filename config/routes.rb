@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :types, only: [:show]  
   resources :carts, only: [:create]
   resources :users, only: [:new, :create, :show]
-  resources :orders, only: [:index, :create]
+  resources :orders, only: [:index, :create, :show]
   
   namespace :admin do
     resources :dashboard, only: [:index]

@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :creature_types,
                 :creature,
                 :current_user,
-                :current_admin?
+                :current_admin?,
+                :find_creature
   
   def set_cart
     @cart = Cart.new(session[:cart])
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
   
   def current_admin?
     current_user && current_user.admin?
+  end
+  
+  def find_creature(name)
+    Creature.find_by(name: name)
   end
 end

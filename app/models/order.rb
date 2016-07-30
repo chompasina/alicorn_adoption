@@ -28,4 +28,12 @@ class Order < ActiveRecord::Base
   def assign_total_price 
     update_attribute(:total_price, total_price.to_i.to_f)
   end
+  
+  def completed?
+    self.status == "completed"
+  end
+  
+  def canceled?
+    self.status == "canceled"
+  end 
 end

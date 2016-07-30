@@ -1,27 +1,8 @@
+<h2><%= current_user.username %>'s Order History</h2>
 <% if @order %>
-  <h2>Order Summary</h2>  
-  <table class="table">
-    <tr>
-      <th>Creature</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-    <% @order.order_details.each do |key, value| %>
-      <tr>
-        <th><%= key %></th>
-        <th><%= value.last %></th>
-        <th><%= number_to_currency(value.first) %></th>
-      </tr>
-    <% end %>
-    <tr>
-      <th><strong>Total</strong></th>
-      <th></th>
-      <th><strong><%= number_to_currency(@order.total_price) %></strong></th>
-    </tr>
-  </table>
+  <%= render partial: "order_table", locals: { order: @order } %>
 <% end %>
 
-<h2><%= current_user.username %>'s Order History</h2>
 <% current_user.orders.each do |order| %>
-  <%= order.id %>
+  <%= link_to "Order #{order.id}", order_path(order) %></br>
 <% end %>
