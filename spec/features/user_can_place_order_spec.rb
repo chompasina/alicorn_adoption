@@ -28,9 +28,9 @@ RSpec.feature "Existing user has items in cart" do
     expect(page).to have_content("Order was successfully placed")
     expect(page).to have_content("Order Summary")
     within('.table') do
-      expect(page).to have_content("#{creature.name}")
-      expect(page).to have_content("#{creature.price}")
-      expect(page).to have_content("#{user.orders.first.total_price}")
+      expect(page).to have_content(creature.name)
+      expect(page).to have_content(creature.price)
+      expect(page).to have_content(user.orders.first.total_price)
     end
   end
 end

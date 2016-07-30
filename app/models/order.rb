@@ -19,13 +19,13 @@ class Order < ActiveRecord::Base
   
   def total_price
     total_price = 0
-    self.order_details.each do |key, value|
+    order_details.each do |key, value|
       total_price += value.reduce(:*)
     end
     total_price
   end
   
   def assign_total_price 
-    self.update_attribute(:total_price, total_price.to_i.to_f)
+    update_attribute(:total_price, total_price.to_i.to_f)
   end
 end
