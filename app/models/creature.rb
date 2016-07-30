@@ -6,4 +6,8 @@ class Creature < ActiveRecord::Base
   has_many :creatures_orders
   has_many :orders, through: :creatures_orders
   # validates :type, presence: true
+  
+  def retire
+    update_attribute(:retired, true)
+  end
 end
