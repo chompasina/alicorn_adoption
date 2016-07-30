@@ -1,27 +1,27 @@
 require 'rails_helper'
 
 RSpec.feature "Admin is logged in and wants to modify account data" do
-  admin_attributes = {
-    username: "admin",
-    password: "password",
-    email: "admin@alicorn.com",
-    admin: true
-  }
-  
-  admin = User.create!(admin_attributes)
-  user = FactoryGirl.create(:user)
-  
-  xscenario "and the admin can login and modify their own account data" do
+  scenario "and the admin can login and modify their own account data" do
+    admin = User.create!(
+                        username: "admin",
+                        password: "password",
+                        email: "admin@alicorn.com",
+                        admin: true 
+                        )
+    
     visit login_path
-    fill_in "session_username", with: admin_attributes[:username]
-    fill_in "session_password", with: admin_attributes[:password]
+    fill_in "session_username", with: admin.username
+    fill_in "session_password", with: "password"
     click_button "Login"
+    
     click_link "Edit my information"
-    fill_in "email", with: "new_admin@alicorn.com"
+    fill_in "Email", with: "new_admin@alicorn.com"
+    fill_in "Password", with: "password"
+     
+    click_button "Update"
     
-    click_button "Submit"
-    
-    expect(current_path).to eq(user_path(admin))
+    expect(current_path).to eq(admin_dashboard_index_path)
+    # save_and_open_page
     expect(page).to have_content("admin")
     expect(page).to have_content("new_admin@alicorn.com")
   end

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create]
   
   namespace :admin do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: [:index, :edit, :update]
   end
   
   post "/login", to: "sessions#create"
