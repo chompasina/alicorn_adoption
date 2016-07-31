@@ -12,7 +12,12 @@ class Seed
   end
   
   def create_admin
-    User.create(username: "admin", password: "admin", email: "admin@admin.com", admin:true)
+    User.create(
+      username: "admin", 
+      password: "admin", 
+      email: "admin@admin.com", 
+      admin:true
+    )
   end
   
   def create_types
