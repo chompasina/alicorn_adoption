@@ -16,7 +16,7 @@ class Seed
       username: "admin", 
       password: "admin", 
       email: "admin@admin.com", 
-      admin:true
+      admin: true
     )
   end
   
