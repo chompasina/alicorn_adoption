@@ -1,5 +1,5 @@
-<p>
-  Personal Information:
-  Your username: <%= current_user.username %>
-  Your email: <%= current_user.email %>
-</p>
+<ul class="nav nav-tabs">
+  <li role="presentation"><%= link_to "Personal Information", dashboard_path %></li>
+  <li role="presentation"><%= link_to "My Orders", orders_path %></li>
+</ul>
+

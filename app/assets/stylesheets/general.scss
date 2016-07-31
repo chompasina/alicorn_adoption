@@ -1,0 +1,34 @@
+@import "variables";
+
+body {
+  color: $primary-color;
+  font-family: $font-stack;
+}
+
+h1 {
+  color: $title-color;
+}
+
+.home-link a {
+  color: $top-nav-color;
+  text-decoration: none;
+}
+
+.page-title {
+  margin-top: -20px;
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+.page-subtitle {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.btn-checkout {
+  text-align: center;
+  border: 1px solid $pink-color;
+  border-radius: 3px;
+  background-color: $pink-color;
+  color: $btn-text-color;
+}

@@ -1,30 +1,51 @@
 <h1>Cart Summary</h1>
+</br>
 
-<div class="cart-items">
-  <%= raw(flash[:delete]) %>
-  <% @creatures.each do |creature| %>
-    <p><%= creature.name %></p>
-    <p>price:<%= creature.price %></p>
-    <p>quantity: <%= @cart.count_of(creature.id) %></p>
-    <p><%= creature.description %></p>
-    <%= button_to "+", cart_path(add: creature.id), method: :put %>
-    <%= button_to "-", cart_path(remove: creature.id), method: :put %>
-    <%= link_to "Remove", cart_path(creature_id: creature.id), method: :delete %>
-    <%= image_tag("#{creature.name}.png", width: 100) %>
-  <% end %>
-</div>
-
-<div class="cart-total">
-  <p>
-    <% if @cart %>
-      Total: <%= number_to_currency(@cart.total_price) %>
-    <% else %>
-      Total: $0.00
+<div class="table-responsive">
+  <table class="col-md-10 table">
+    <%= raw(flash[:delete]) %>
+    <thead>
+    <tbody>
+      <tr>
+        <td>Creature</td>
+        <td>Description</td>
+        <td>Quantity</td>
+        <td>Price</td>
+      </tr>
+    </thead>
+    <% @creatures.each do |creature| %>
+    <tr>
+      <td class="col-md-2"><%= image_tag("#{creature.name}.png", width: 100) %></br>
+        <%= creature.name %></br>
+        <%= link_to "Remove", cart_path(creature_id: creature.id), method: :delete %>
+      </td>
+      <td class="col-md-4"><%= creature.description %></td>
+      <td class="col-md-2">quantity: <%= @cart.count_of(creature.id) %>
+        <%= button_to "+", cart_path(add: creature.id), method: :put %>
+        <%= button_to "-", cart_path(remove: creature.id), method: :put %></td>
+      <td class="col-md-2">price:<%= creature.price %></td>
+    </tr>
     <% end %>
-  </p>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+      <% if @cart %>
+        Total: <%= number_to_currency(@cart.total_price) %>
+      <% else %>
+        Total: $0.00
+      <% end %>
+      <td>
+    </tr>
+  </tbody>
+  </table>
 </div>
 
-<div class="btn-default">
+
+
+
+<div class="btn">
   <% if current_user %>
     <%= button_to "Checkout", orders_path(contents: session[:cart]), method: :create %>
   <% else %>

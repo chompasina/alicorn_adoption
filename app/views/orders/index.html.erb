@@ -1,3 +1,7 @@
+<h1>Your Account</h1>
+
+<%= render partial: "shared/user_profile" %>
+
 <h2><%= current_user.username %>'s Order History</h2>
 <% if @order %>
   <%= render partial: "order_table", locals: { order: @order } %>

@@ -8,7 +8,8 @@ RSpec.feature "Visitor sees the home page of the application" do
 
     visit root_path
 
-    expect(page).to have_content("Welcome to Alicorn Adoption!")
+    expect(page).to have_content("Alicorn Adoption")
+    expect(page).to have_content("All Creatures")
     expect(page).to have_content("Unicorn")
     expect(page).to have_content("Centaur")
   end

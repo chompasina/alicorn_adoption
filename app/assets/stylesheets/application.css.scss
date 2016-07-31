@@ -16,5 +16,10 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "general";
+
 @import "navbar";
-@import "creatures_index";
+@import "flash_notices";
+@import "creatures";
+@import "login";
