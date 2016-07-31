@@ -15,20 +15,20 @@ RSpec.feature "Authenticated user cannot see admin privileges" do
       
       user1_order1 = user1.orders.create
       order1_items = user1_order1.creatures_orders.create!(
-      creature_id: creature_1.id, 
-      quantity: 2
+        creature_id: creature_1.id, 
+        quantity: 2
       )
       
       user2 = User.create!(
-      username: "Mozzie", 
-      password: "password1", 
-      email: "mozzie@gmail.com"
+        username: "Mozzie", 
+        password: "password1", 
+        email: "mozzie@gmail.com"
       )
       
       user2_order1 = user2.orders.create
       order1_items = user2_order1.creatures_orders.create!(
-      creature_id: creature_2.id, 
-      quantity: 1
+        creature_id: creature_2.id, 
+        quantity: 1
       )
       
       visit root_path
