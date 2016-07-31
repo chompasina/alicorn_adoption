@@ -8,6 +8,11 @@ class Seed
     Type.all.each do |type|
       create_creatures(type)
     end
+    create_admin
+  end
+  
+  def create_admin
+    User.create(username: "admin", password: "admin", email: "admin@admin.com", admin:true)
   end
   
   def create_types
