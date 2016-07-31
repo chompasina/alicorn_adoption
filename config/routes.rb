@@ -9,13 +9,12 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create, :show]
   
   namespace :admin do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: [:index, :edit, :update]
   end
   
   post "/login", to: "sessions#create"
   get "/login", to: "sessions#new"
   delete "/logout", to: "sessions#destroy"
-  # get '/users/:id', to: "users#show", as: 'dashboard'
   get '/dashboard', to: "users#show"
   
   put "/cart", to: "carts#update"

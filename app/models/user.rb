@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   def to_param
   end
-  
+    
   private
 
   def default_values

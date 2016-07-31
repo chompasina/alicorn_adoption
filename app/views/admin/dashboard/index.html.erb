@@ -1,1 +1,4 @@
 <h1>Admin Dashboard</h1>
+
+<%= render partial: "shared/user_profile" %>
+<%= link_to "Edit my information", edit_admin_dashboard_path(current_user.id) %>

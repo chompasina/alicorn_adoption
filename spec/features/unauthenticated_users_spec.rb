@@ -1,14 +1,17 @@
 require 'rails_helper'
 
 RSpec.feature "Registered user " do
-  xscenario "they cannot see user's private page" do
+  scenario "they cannot see user's private page" do
     user = User.create!(username: "Mozzie", password: "password1", email: "mozzie@gmail.com")
     
     visit dashboard_path
     
-    expect(page).to have_content("You need to login or create an account to see this page.")
+    expect(page).to have_content("Access Forbidden (403)")
     expect(page).to_not have_content(user.username)
     expect(page).to_not have_content(user.email)
+    
+    visit cart_path
+    click_button "Login to Checkout"
     expect(current_path).to eq(login_path) #with a link to create an account in case that are not registered users
   end
   
