@@ -5,14 +5,13 @@ RSpec.describe Order, type: :model do
     FactoryGirl.create(:order).should be_valid
   end
 
-  it "has order details" do 
-    Order.new()
-    
-    <% order.order_details.each do |key, value| %>
-      <tr>
-        <th><%= link_to key, creature_path(find_creature(key)) %></th>
-        <th><%= value.last %></th>
-        <th><%= number_to_currency(value.first) %></th>
-      </tr>
+  it "has an order status of completed" do 
+    alicorn = Order.new(status: "completed")
+    alicorn.completed?.should == true
+  end
   
+  it "has an order status of canceled" do 
+    unicorn = Order.new(status: "canceled")
+    unicorn.canceled?.should == true
+  end
 end
