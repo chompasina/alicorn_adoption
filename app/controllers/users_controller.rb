@@ -20,8 +20,8 @@ class UsersController < ApplicationController
     if session[:user_id]
       @user = current_user
     else 
-        response.status = 403
-        render file: "/public/403"  
+      response.status = 403
+      render file: "/public/403"  
     end
   end
   
