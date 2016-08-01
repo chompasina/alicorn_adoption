@@ -14,11 +14,10 @@
 </head>
 <body>
 
- <nav class="top-nav navbar navbar-default navbar-fixed-top">
+<nav class="top-nav navbar navbar-default navbar-fixed-top">
   <div class="row">
     
     <div class="col-md-9 navbar-header">
-      <!-- <h4 class="site-title">Welcome to Alicorn Adoption!</h4> -->
     </div>
       
     <div class="col-md-3">
@@ -37,15 +36,15 @@
 
 <%= render partial: "layouts/sidebar" %>
 
-
-  <div class="main col-md-12">
-    <p class="flash">
-      <%= flash[:notice] %>
-    </p> 
-    <iframe class="col-md-4 offset-md-4" src="https://embed.spotify.com/?uri=spotify:track:3xZMPZQYETEn4hjor3TR1A" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>
-    <%= yield %>
-  </div>
-
+<div class="main col-md-12">
+  <p class="flash">
+    <%= flash[:notice] %>
+  </p> 
+  <audio controls autoplay>
+    <source src="/assets/angel.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <%= yield %>
 </div>
 
 </body>
