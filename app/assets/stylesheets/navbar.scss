@@ -1,0 +1,140 @@
+@import 'variables';
+
+//*** TOP NAV ***/
+
+.site-title {
+  text-align: center;
+}
+
+.navbar {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.top-nav.navbar.navbar-default.navbar-fixed-top {
+  background-color: $top-nav-color;
+  opacity: 0.8;
+  vertical-align: top;
+  z-index: 1;
+}
+
+.top-nav-list {
+  color: $pink-color;
+  display: inline-block;
+  list-style: none;
+  text-align: center;
+}
+
+.top-nav-list > li > a {
+  color: $pink-color;
+  text-decoration: none;
+}
+
+.top-nav-list > li > a:hover {
+  color: $secondary-color;
+}
+
+.main {
+  margin-top: 45px;
+}
+
+.glyphicon-shopping-cart {
+  margin-right: 5px;
+  color: $pink-color;
+}
+
+.glyphicon-log-out {
+  color: $pink-color;
+  margin-left: 5px;
+}
+
+//*** SIDEBAR NAV ***/
+
+nav.sidebar.navbar {
+  border-radius: 0;
+}
+
+nav.sidebar, .main {
+  -webkit-transition: margin 200ms ease-out;
+  -moz-transition: margin 200ms ease-out;
+  -o-transition: margin 200ms ease-out;
+  transition: margin 200ms ease-out;
+}
+
+.main {
+  padding: 10px 10px 0 10px;
+}
+
+@media (min-width: 768px) {
+
+.main {
+  position: absolute;
+  float: right;
+  margin-left: 40px;
+  width: calc(100% - 40px);
+}
+
+nav.sidebar .navbar-brand, 
+nav.sidebar .navbar-header {
+  margin-left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+nav.sidebar a {
+  padding-right: 13px;
+}
+
+nav.sidebar .navbar-nav > li:first-child {
+  border-top: 1px $sidebar-text-color solid;
+}
+
+nav.sidebar .navbar-nav > li {
+  border-bottom: 0.5px $secondary-color solid;
+}
+
+nav.sidebar .navbar-collapse, 
+nav.sidebar .container-fluid {
+  padding: 0;
+}
+
+nav.sidebar {
+  background-image: url("sidebar.jpg");
+  color: $sidebar-text-color;
+  float: left;
+  height: 100%;
+  margin-bottom: 0;
+  position: fixed;
+  width: 160px;
+  z-index: 8000;
+}
+
+nav.sidebar li {
+  width: 100%;
+}
+
+nav.sidebar:hover {
+  margin-left: 0;
+}
+}
+
+@media (min-width: 1330px) {
+
+.main {
+  margin-left: 200px;
+  width: calc(100% - 200px); 
+}
+
+nav.sidebar {
+  float: left;
+  margin-left: 0;
+}
+}
+
+section {
+  padding-left: 15px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: $secondary-color;
+}

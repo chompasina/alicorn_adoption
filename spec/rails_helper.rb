@@ -9,6 +9,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'database_cleaner'
 require 'awesome_print'
+require 'faker'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

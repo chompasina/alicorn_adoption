@@ -1,0 +1,18 @@
+@import "variables";
+
+.login {
+background-image: url("unicorn.jpg");
+}
+
+.btn-login {
+  text-align: center;
+  border: 1px solid $pink-color;
+  border-radius: 3px;
+  background-color: $pink-color;
+  color: $btn-text-color;
+  padding: 5px 10px 5px 10px;
+}
+
+.form-label {
+  color: #fff;
+}

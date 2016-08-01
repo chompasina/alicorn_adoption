@@ -1,0 +1,24 @@
+<nav class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+		
+		<div class="navbar-header">
+      <h4 class="home-link">
+      <%= link_to "Alicorn Adoption", creatures_path %></h4>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+      
+          <li><%= link_to "All Creatures", "/" %></li>
+            <% creature_types.each do |type| %>
+              <li class="sidebar-list" role="presentation"><%= link_to type.name.capitalize, "/#{type.name}" %></li>
+            <% end %>
+			
+				</li>
+        <% if current_user %>
+          <li><%= link_to "My Accout", dashboard_path %></li>
+        <% end %>
+			</ul>
+		</div>
+	</div>
+</nav>
