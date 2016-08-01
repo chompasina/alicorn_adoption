@@ -11,22 +11,25 @@
         <td>Description</td>
         <td>Quantity</td>
         <td>Price</td>
+        <td>Subtotal</td>
       </tr>
     </thead>
     <% @creatures.each do |creature| %>
     <tr>
       <td class="col-md-2"><%= image_tag("#{creature.name}.png", width: 100) %></br>
         <%= creature.name %></br>
-        <%= link_to "Remove", cart_path(creature_id: creature.id), method: :delete %>
+        <%= link_to "Remove From Cart", cart_path(creature_id: creature.id), method: :delete %>
       </td>
       <td class="col-md-4"><%= creature.description %></td>
-      <td class="col-md-2">quantity: <%= @cart.count_of(creature.id) %>
+      <td class="col-md-2"><%= @cart.count_of(creature.id) %>
         <%= button_to "+", cart_path(add: creature.id), method: :put %>
         <%= button_to "-", cart_path(remove: creature.id), method: :put %></td>
-      <td class="col-md-2">price:<%= creature.price %></td>
+        <td class="col-md-2"><%= number_to_currency(creature.price) %></td>
+      <td class="col-md-2"><%= number_to_currency(@cart.subtotal(creature.id)) %></td>
     </tr>
     <% end %>
     <tr>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
