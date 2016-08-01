@@ -14,7 +14,7 @@ class Cart
     contents[creature_id.to_s]
   end
   
-  def total #total_quantity
+  def total # total_quantity
     contents.values.sum
   end
   

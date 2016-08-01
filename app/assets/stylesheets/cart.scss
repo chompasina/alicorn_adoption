@@ -10,20 +10,20 @@
 }
 
 .btn.btn-success {
-  background-color: #66ff66;
-  color: #212121;
-  border: none;
+  background-color: $btn-add-color;
+  color: $btn-text-color;
+  border: 0;
 }
 
 .btn.btn-red {
-  background-color: #66ff66;
-  color: #212121;
+  background-color: $btn-remove-color;
+  color: $btn-text-color;
   border: none;
 }
 
-.btn.btn-danger, .btn.btn-success {
+.btn.btn-danger, 
+.btn.btn-success {
   margin-top: 5px;
-  padding-top: 0;
   padding-bottom: 0;
-  
+  padding-top: 0;
 }
