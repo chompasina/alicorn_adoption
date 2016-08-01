@@ -6,7 +6,10 @@ class OrdersController < ApplicationController
   end
   
   def create
-    if current_user && session[:cart]
+    if current_user && (session[:cart].values.sum == 0 || session[:cart].nil?)
+      flash[:notice] = "Your cart is empty."
+      redirect_to cart_path
+    elsif current_user && session[:cart]
       @order = current_user.orders.create
       params[:contents].each do |key, value|
         @order.creatures_orders.create(creature_id: key, quantity: value)
@@ -14,9 +17,6 @@ class OrdersController < ApplicationController
       @order.assign_total_price
       flash[:notice] = "Order was successfully placed"
       render :index
-    elsif current_user 
-      flash[:notice] = "Your cart is empty."
-      redirect_to cart_path
     else  
       redirect_to login_path
     end
