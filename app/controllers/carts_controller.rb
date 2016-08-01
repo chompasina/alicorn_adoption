@@ -1,11 +1,11 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
+  before_action :set_creature, only: [:create, :destroy]
   
   def create
-    creature = Creature.find(params[:creature_id])
-    @cart.add_creature(creature.id)
+    @cart.add_creature(@creature.id)
     session[:cart] = @cart.contents
-    flash[:notice] = "You now have selected #{pluralize(@cart.count_of(creature.id), creature.name)}."
+    flash[:notice] = "You now have selected #{pluralize(@cart.count_of(@creature.id), @creature.name)}."
     redirect_to root_path
   end
   
@@ -25,12 +25,15 @@ class CartsController < ApplicationController
   end
   
   def destroy
-    @creature = Creature.find(params[:creature_id])
     session[:cart] = @cart.contents
     session[:cart][@creature.id] = 0
     session[:removed_creature] = @creature.id
     delete_link = "<a href=\"#{url_for(@creature)}\">#{@creature.name}</a>"
     flash[:delete] = "Successfully removed #{delete_link} from your cart"
     redirect_to cart_path
+  end
+  
+  def set_creature
+    @creature = Creature.find(params[:creature_id])
   end
 end
