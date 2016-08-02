@@ -1,8 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :creatures_orders
   has_many :creatures, through: :creatures_orders
-  belongs_to :user
-  
+  belongs_to :user  
   # after_update :assign_total_price
   
   def order_details
