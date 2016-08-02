@@ -10,12 +10,12 @@ RSpec.feature "User wants to change the quantity of a creature from cart" do
     visit cart_path
     
     expect(page).to have_content(creature.price)
-    expect(page).to have_content("quantity: 1")
+    expect(page).to have_content("1")
     
     click_button "+"
     
-    expect(page).to have_content(creature.price*2)
-    expect(page).to have_content("quantity: 2")
+    expect(page).to have_content(creature.price * 2)
+    expect(page).to have_content("2")
   end
   
   scenario "user has an extra creature they want to remove " do
@@ -29,11 +29,11 @@ RSpec.feature "User wants to change the quantity of a creature from cart" do
     click_button "+"
     
     expect(page).to have_content(creature.price*2)
-    expect(page).to have_content("quantity: 2")
+    expect(page).to have_content("2")
     
     click_button "-"
     
     expect(page).to have_content(creature.price)
-    expect(page).to have_content("quantity: 1")
+    expect(page).to have_content("1")
   end
 end
