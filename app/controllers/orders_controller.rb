@@ -6,15 +6,11 @@ class OrdersController < ApplicationController
   end
   
   def create
-    if current_user && (session[:cart].values.sum == 0 || session[:cart].nil?)
+    if current_user && @cart.empty?
       flash[:notice] = "Your cart is empty."
       redirect_to cart_path
-    elsif current_user && session[:cart]
-      @order = current_user.orders.create
-      params[:contents].each do |key, value|
-        @order.creatures_orders.create(creature_id: key, quantity: value)
-      end
-      @order.assign_total_price
+    elsif current_user && @cart.not_empty?
+      create_order
       flash[:notice] = "Order was successfully placed"
       render :index
     else  
@@ -28,5 +24,15 @@ class OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
+  end
+  
+  private
+  
+  def create_order
+    @order = current_user.orders.create
+    params[:contents].each do |key, value|
+      @order.creatures_orders.create(creature_id: key, quantity: value)
+    end
+    @order.assign_total_price
   end
 end

@@ -14,7 +14,7 @@ class Cart
     contents[creature_id.to_s]
   end
   
-  def total #change method name for total_quantity
+  def total # total_quantity
     contents.values.sum
   end
   
@@ -32,5 +32,17 @@ class Cart
       creatures << Creature.find(id) unless contents[id] == 0
     end
     creatures
+  end
+  
+  def subtotal(creature_id)
+    contents[creature_id.to_s] * Creature.find(creature_id).price
+  end
+  
+  def empty?
+    contents.values.sum == 0 || nil?
+  end
+  
+  def not_empty?
+    empty? == false
   end
 end
