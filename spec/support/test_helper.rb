@@ -14,7 +14,7 @@ def admin_login
     password: "adminpw", 
     email: "admin@gmail.com", 
     admin: true
-    )
+  )
 
   visit root_path
   click_on "Login"
