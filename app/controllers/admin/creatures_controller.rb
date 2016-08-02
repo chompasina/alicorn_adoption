@@ -25,6 +25,6 @@ class Admin::CreaturesController < Admin::BaseController
   private
   
   def creature_params
-    params.require(:creature).permit(:name, :price, :description, :retired)
+    params.require(:creature).permit(:name, :price, :description, :retired, :image_path)
   end
 end

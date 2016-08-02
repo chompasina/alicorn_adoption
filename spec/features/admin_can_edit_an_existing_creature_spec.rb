@@ -1,17 +1,15 @@
 require 'rails_helper'
 require 'support/test_helper'
 
-# Then my current path should be "/admin/items/:ITEM_ID/edit"
-# And I should be able to upate title, description, image, and status
-
 RSpec.feature "Admin wants to edit an existing creature" do
   before do
     create_creature
-    admin_login
   end
   
   scenario "Admin is logged in and edits the creature" do
+    admin_login
     visit admin_creatures_path
+
     click_on "Edit Unicorn"
     
     expect(Creature.last.name).to eq("Unicorn")
@@ -25,6 +23,7 @@ RSpec.feature "Admin wants to edit an existing creature" do
     fill_in "creature_price", with: "350.00"
     fill_in "creature_description", with: "Pretty and pink"
     fill_in "creature_retired", with: "true"
+    fill_in "creature_image_path", with: "http://67.media.tumblr.com/30b1b0d0a42bca3759610242a1ff0348/tumblr_nnjxy1GQAA1tpo3v2o1_540.jpg"
     
     click_button "Update"
     
@@ -32,11 +31,17 @@ RSpec.feature "Admin wants to edit an existing creature" do
     expect(Creature.last.price).to eq(350.00)
     expect(Creature.last.description).to eq("Pretty and pink")
     expect(Creature.last.retired).to eq(true)
-    
-    # need to be able to edit image
+    expect(Creature.last.image_path).to eq("http://67.media.tumblr.com/30b1b0d0a42bca3759610242a1ff0348/tumblr_nnjxy1GQAA1tpo3v2o1_540.jpg")
+
+  
+    expect(current_path).to eq(admin_creatures_path)
   end
   
   scenario "User cannot edit an existing creature" do
-    # need to write test for this
+    user_login 
+    visit admin_creatures_path
+    
+    expect(page.status_code).to eq(404)
+    expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 end

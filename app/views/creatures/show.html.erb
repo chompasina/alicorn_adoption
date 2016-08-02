@@ -12,7 +12,11 @@
     </p>
   </div>
   <div class="col-md-4">
-    <%= image_tag("#{@creature.name}.png", width: 400) %>
+    <% if @creature.image_path %>
+      <%= image_tag("#{@creature.image_path}", width: 400) %>
+    <% else %>
+      <%= image_tag("#{@creature.name}.png", width: 400) %>
+    <% end %>
   </div>
 </div>
 </div>
