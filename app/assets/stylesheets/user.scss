@@ -1,0 +1,7 @@
+@import 'variables';
+
+.nav nav-tabs.active,
+.nav nav-tabs:hover {
+  background-color: $title-color;
+  text-align: center;
+}

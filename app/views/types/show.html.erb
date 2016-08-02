@@ -1,9 +1,24 @@
-<h1><%= @type.name %></h1>
 
-<div class="main">
+<% if @type.name == "aquatic" %>
+  <body class="aquatic">
+<% elsif @type.name == "terrestrial" %>
+  <body class="terrestrial">
+<% else @type.name == "aerial" %>
+  <body class="aerial">
+<% end %>        
+
+  <h1 class="type-title"><%= @type.name %></h1>
   <% @creatures.each do |creature| %>
-    <%= image_tag("#{creature.name}.png", width: 400) %>
-    <%= link_to creature.name, creature_path(creature) %>
-    <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-danger" %>
+  <div class="container col-md-4 home-creature-wrapper">
+    <div class="col-md-4 home-creature-img media">
+      <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" >
+      <em><%= link_to creature.name, creature_path(creature), class: "type-creature-name" %></em></p>    
+      <% if creature.retired %>
+        <p>This creature can no longer be sponsored!</p>
+      <% else %>
+        <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-type-creature" %>
+      <% end %>
+    </div>
+  </div>
   <% end %>
-</div>
+</body>
