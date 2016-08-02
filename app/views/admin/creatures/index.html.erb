@@ -3,7 +3,11 @@
   <% @creatures.each do |creature| %>
       <div class="container col-md-4 home-creature-wrapper">
         <div class="col-md-4 home-creature-img media">
-          <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" alt="...">
+          <% if creature.image_path %>  
+            <img class="media img-index" src="<%= "#{creature.image_path}" %>" alt="...">
+          <% else %>
+            <img class="media img-index" src="<%="../assets/#{creature.name}.png" %>" alt="...">
+          <% end %>
         <em><%= link_to "Edit #{creature.name}", edit_admin_creature_path(creature), class: "home-creature-name" %></em></p>    
       </div>
     </div>
