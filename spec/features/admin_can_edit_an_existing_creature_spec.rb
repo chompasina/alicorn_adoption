@@ -33,7 +33,6 @@ RSpec.feature "Admin wants to edit an existing creature" do
     expect(Creature.last.retired).to eq(true)
     expect(Creature.last.image_path).to eq("http://67.media.tumblr.com/30b1b0d0a42bca3759610242a1ff0348/tumblr_nnjxy1GQAA1tpo3v2o1_540.jpg")
 
-  
     expect(current_path).to eq(admin_creatures_path)
   end
   

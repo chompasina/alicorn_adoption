@@ -5,7 +5,11 @@ end
 
 def create_creature
   type = Type.create(name: "Land")
-  type.creatures.create(name: "Unicorn", description: "Pretty and pink", price: 200.00)
+  type.creatures.create(
+    name: "Unicorn", 
+    description: "Pretty and pink", 
+    price: 200.00
+  )
 end
 
 def admin_login
@@ -24,7 +28,11 @@ def admin_login
 end
 
 def user_login
-  user = User.create!(username: "Casey", password: "password", email: "casey@gmail.com")
+  user = User.create!(
+    username: "Casey", 
+    password: "password", 
+    email: "casey@gmail.com"
+  )
 
   visit root_path
   click_link "Login"
