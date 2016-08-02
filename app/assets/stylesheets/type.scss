@@ -1,0 +1,32 @@
+@import 'variables';
+
+.type-title {
+color: $type-color;
+}
+.aquatic {
+background-image: url("aquatic.jpg");
+}
+
+.terrestrial {
+background-image: url("terrestrial.jpg");
+}
+
+.aerial {
+background-image: url("aerial.jpg");
+}
+
+.btn-type-creature {
+  background-color: $type-color;
+  border: 1px solid $grey-color;
+  color: $type-text-color;
+}
+
+.btn-type-creature:hover {
+  background-color: $btn-color;
+  border: 1px solid $btn-color;
+  color: $btn-hover;
+}
+
+.type-creature-name {
+  color: $type-color;
+}
