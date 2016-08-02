@@ -16,6 +16,20 @@ class Admin::DashboardController < Admin::BaseController
     end
   end
   
+  def new
+  end
+  
+  def create
+    user = User.find_by(username: params[:user][:username])
+    if user
+      user.admin = true
+      flash[:notice] = "#{params[:user][:username]} is now an admin!"
+    else
+      flash[:notice] = "#{params[:user][:username]} was not found"
+    end
+    redirect_to admin_dashboard_index_path
+  end
+  
   private
   
   def user_params

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :create, :show]
   
   namespace :admin do
-    resources :dashboard, only: [:index, :edit, :update]
+    resources :dashboard, only: [:index, :edit, :update, :new, :create]
     resources :creatures, only: [:index, :edit, :update]
   end
   
