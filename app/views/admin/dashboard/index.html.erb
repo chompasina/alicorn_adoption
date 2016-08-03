@@ -13,6 +13,8 @@
     <%= link_to "Edit my information", edit_admin_dashboard_path(current_user.id) %>
     </br>
     <%= link_to "Create Another Admin", new_admin_dashboard_path %>
+    </br>
+    <%= link_to "Delete My Account", user_path(current_user.id), method: :delete, data: {confirm: 'Are you sure?'} %>
   </div>
 </div>
 </br>
