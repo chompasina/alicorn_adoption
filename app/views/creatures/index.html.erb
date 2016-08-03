@@ -6,6 +6,10 @@
 <em><h1 class="page-title">Alicorn Adoption</h1></em>
 <em><h2 class="page-subtitle">All Creatures</h2></em>
 
+<h4 class="page-edit"><% if current_admin? %>
+  <%= link_to "Edit Creatures", admin_creatures_path %>
+<% end %></h4>
+
   <% @creatures.each do |creature| %>
       <div class="container col-md-4 home-creature-wrapper">
         <div class="col-md-4 home-creature-img media">

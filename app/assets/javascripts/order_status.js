@@ -22,4 +22,3 @@ $(document).ready(function () {
     $("#admin-account-target").slideToggle(400)
   });
 });
-
