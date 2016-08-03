@@ -6,10 +6,10 @@ $(document).ready(function () {
     var currentStatus = this.value;
     $orders.each(function (index, order) {
       $order = $(order);
-      if ($order.data('status') === currentStatus) {
-        $order.show();  
-      } else {
-        $order.hide();
+        if ($order.data('status') === currentStatus) {
+          $order.show();  
+        } else {
+          $order.hide();
       }  
     });
   });
