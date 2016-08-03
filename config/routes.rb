@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :destroy]
   resources :orders, only: [:index, :create, :show]
   
+  namespace :order do 
+    resources :charges, only: [:new, :create]
+  end
+  
   namespace :admin do
     resources :dashboard, only: [:index, :edit, :update, :new, :create]
     resources :creatures, only: [:index, :edit, :update]
