@@ -35,4 +35,8 @@ class Order < ActiveRecord::Base
   def canceled?
     status == "canceled"
   end 
+  
+  def self.order_status(status)
+    self.all.where(status: status).count
+  end
 end

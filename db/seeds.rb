@@ -9,6 +9,7 @@ class Seed
       create_creatures(type)
     end
     create_admin
+    orders
   end
   
   def create_admin
@@ -65,6 +66,51 @@ class Seed
        ["Pixie", 50.00]
       ]
     }
+  end
+  
+  def orders
+    user1 = User.create!(
+      username: "Casey", 
+      password: "password", 
+      email: "casey@gmail.com"
+    )
+
+    user2 = User.create!(
+      username: "Andrew", 
+      password: "password", 
+      email: "andrew@gmail.com"
+    )
+    
+    user1_order1 = User.first.orders.create(status: "Ordered")
+    user1_order2 = User.first.orders.create(status: "Paid")
+    user1_order3 = User.first.orders.create(status: "Completed")
+    user2_order1 = User.last.orders.create(status: "Paid")
+    user2_order2 = User.last.orders.create(status: "Canceled")
+    
+    user1_order1.creatures_orders.create!(
+      creature_id: Creature.first.id,
+      quantity: 1
+    )
+    
+    user1_order2.creatures_orders.create!(
+      creature_id: Creature.first.id,
+      quantity: 1
+    )
+      
+    user1_order3.creatures_orders.create!(
+      creature_id: Creature.first.id,
+      quantity: 1
+    )
+      
+    user2_order1.creatures_orders.create!(
+      creature_id: Creature.first.id,
+      quantity: 1
+    )
+      
+    user2_order2.creatures_orders.create!(
+      creature_id: Creature.first.id,
+      quantity: 1
+    )    
   end
 end
 

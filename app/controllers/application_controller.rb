@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
                 :creature,
                 :current_user,
                 :current_admin?,
-                :find_creature
+                :find_creature,
+                :non_admin?
   
   def set_cart
     @cart = Cart.new(session[:cart])
@@ -28,4 +29,5 @@ class ApplicationController < ActionController::Base
   def find_creature(name)
     Creature.find_by(name: name)
   end
+  
 end
