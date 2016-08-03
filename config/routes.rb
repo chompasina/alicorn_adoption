@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :creatures, only: [:index, :show]
   resources :types, only: [:show]  
   resources :carts, only: [:create]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :destroy]
   resources :orders, only: [:index, :create, :show]
   
   namespace :admin do
