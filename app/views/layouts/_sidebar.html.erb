@@ -15,7 +15,9 @@
             <% end %>
 			
 				</li>
-        <% if current_user %>
+        <% if current_admin? %>
+          <li><%= link_to "Admin Account", admin_dashboard_index_path %></li>
+        <% else %>
           <li><%= link_to "My Account", dashboard_path %></li>
         <% end %>
 			</ul>

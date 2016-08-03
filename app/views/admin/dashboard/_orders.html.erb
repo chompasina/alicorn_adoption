@@ -1,0 +1,32 @@
+<button id="admin-orders">Alicorn Orders</button>
+<div id="admin-orders-target">
+<hr>
+  <h3>Breakdown By Status</h3>
+  <div class="admin-order-stats col-md-12">
+  <div class="admin-order-stats col-md-6">
+    <ul class="list-group">
+      <li class="list-group-item">Completed <span class="badge"><%= @orders.order_status("Completed") %> </span> </li>
+      <li class="list-group-item">Ordered <span class="badge"><%= @orders.order_status("Ordered") %> </li>
+      <li class="list-group-item">Paid <span class="badge"><%= @orders.order_status("Paid") %> </li>
+      <li class="list-group-item">Canceled <span class="badge"><%= @orders.order_status("Canceled") %> </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  
+  <div class="col-md-3">
+    <%= render partial: 'filter' %>
+  </div>    
+  
+  <div class="col-md-6">
+    <div class="orders col-md-6">
+      <% @orders.each do |order| %>
+        <div class="order" data-status="<%= order.status %>">
+          <li> <%= link_to "Order: #{order.id} | #{order.status}", order_path(order) %> </li>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+</div>

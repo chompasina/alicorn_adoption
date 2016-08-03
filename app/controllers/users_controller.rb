@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  before_action :non_admin?, only: [:show]
+
+  def non_admin?
+    if current_admin?
+      response.status = 403
+      render file: "/public/403"  
+    end
+  end
   
   def new
     @user = User.new

@@ -1,10 +1,20 @@
 <h1>Admin Dashboard</h1>
-
-<!-- <%= render partial: "shared/user_profile" %> -->
-<p>
-  Your username: <%= current_user.username %></br>
-  Your email: <%= current_user.email %>
-</p>
-<%= link_to "Edit my information", edit_admin_dashboard_path(current_user.id) %>
 </br>
-<%= link_to "Create Another Admin", new_admin_dashboard_path %>
+<button id="admin-account">Account Information</button>
+</br>
+<div id="admin-account-target">
+<hr>
+  <div>
+    Your username: <%= current_user.username %></br>
+    Your email: <%= current_user.email %>
+  </div>
+
+  <div>
+    <%= link_to "Edit my information", edit_admin_dashboard_path(current_user.id) %>
+    </br>
+    <%= link_to "Create Another Admin", new_admin_dashboard_path %>
+  </div>
+</div>
+</br>
+</br>
+<%= render partial: 'orders' %>

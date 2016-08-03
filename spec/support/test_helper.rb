@@ -28,11 +28,7 @@ def admin_login
 end
 
 def user_login
-  user = User.create!(
-    username: "Casey", 
-    password: "password", 
-    email: "casey@gmail.com"
-  )
+  create_user
 
   visit root_path
   click_link "Login"
@@ -41,3 +37,57 @@ def user_login
   fill_in "session_password", with: "password"
   click_button "Login"
 end
+
+def create_user
+  user = User.create!(
+    username: "Casey", 
+    password: "password", 
+    email: "casey@gmail.com"
+  )
+end
+
+def create_user_2
+  user = User.create!(
+    username: "Andrew", 
+    password: "password", 
+    email: "andrew@gmail.com"
+  )
+end  
+
+def create_orders
+  create_creature 
+  create_user
+  create_user_2
+  
+  user1_order1 = User.first.orders.create(status: "Ordered")
+  user1_order2 = User.first.orders.create(status: "Paid")
+  user1_order3 = User.first.orders.create(status: "Completed")
+  user2_order1 = User.last.orders.create(status: "Paid")
+  user2_order2 = User.last.orders.create(status: "Canceled")
+  
+  user1_order1.creatures_orders.create!(
+    creature_id: Creature.first.id,
+    quantity: 1
+  )
+  
+  user1_order2.creatures_orders.create!(
+    creature_id: Creature.first.id,
+    quantity: 1
+  )
+    
+  user1_order3.creatures_orders.create!(
+    creature_id: Creature.first.id,
+    quantity: 1
+  )
+    
+  user2_order1.creatures_orders.create!(
+    creature_id: Creature.first.id,
+    quantity: 1
+  )
+    
+  user2_order2.creatures_orders.create!(
+    creature_id: Creature.first.id,
+    quantity: 1
+  )    
+end
+
