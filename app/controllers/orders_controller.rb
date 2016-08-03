@@ -35,4 +35,8 @@ class OrdersController < ApplicationController
     end
     @order.assign_total_price
   end
+  
+  def change_order_status
+    @order.update_attributes(status: "Paid")
+  end
 end

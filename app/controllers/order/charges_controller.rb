@@ -4,6 +4,18 @@ class Order::ChargesController < Order::BaseController
   # end
   
   # def create
+  #   @order.update_attributes(cart_token: stripe_params["stripeToken"])
+  #   @order.process_payment
+  #   @order.save
+  #   redirect_to @order
+  #   flash[:notice] = "Order was successfully placed"
+  # end
+  # 
+  # private
+  # 
+  # def stripe_params
+  #   params.permit(:stripeToken)
+  # end
   #   @amount = 500
   # 
   #   customer = Stripe::Customer.create(

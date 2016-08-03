@@ -23,6 +23,7 @@ RSpec.feature "Existing user has items in cart" do
     expect(current_path).to eq('/cart')
   
     click_button "Checkout"
+    click_button "Pay with Stripe"
       
     expect(current_path).to eq(orders_path)
     expect(page).to_not have_content("Your cart is empty")
