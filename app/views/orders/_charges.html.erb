@@ -7,10 +7,33 @@
   <% end %>
 </article>
 
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key]  %>"
-        data-description="A month's subscription"
-        data-description="500"
-        data-locale="auto"></script>
-        
+<script src="https://checkout.stripe.com/checkout.js"></script>
+
+<button id="customButton" class="btn-checkout">Pay with Stripe</button>
+
+<script>
+  var handler = StripeCheckout.configure({
+    key: "<%= Rails.configuration.stripe[:publishable_key] %>",
+    image: 'http://67.media.tumblr.com/30b1b0d0a42bca3759610242a1ff0348/tumblr_nnjxy1GQAA1tpo3v2o1_540.jpg',
+    locale: 'auto',
+    token: function(token) {
+      // You can access the token ID with `token.id`.
+      // Get the token ID to your server-side code for use.
+    }
+  });
+
+  $('#customButton').on('click', function(e) {
+    handler.open({
+      name: 'Alicorn Adoption',
+      description: 'Sponsorships',
+      amount: "<%= @order.total_price * 100 %>"
+    });
+    e.preventDefault();
+  });
+
+  $(window).on('popstate', function() {
+    handler.close();
+  });
+</script>
+
 <% end %>
