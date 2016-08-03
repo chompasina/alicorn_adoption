@@ -5,9 +5,13 @@
 
 <em><h1 class="page-title">Alicorn Adoption</h1></em>
 <em><h2 class="page-subtitle">All Creatures</h2></em>
+<div class="filter">
+  <label>Filter By Name</label>
+  <%= text_field :creature, :filter_name %>
+</div></br>
 
   <% @creatures.each do |creature| %>
-      <div class="container col-md-4 home-creature-wrapper">
+      <div class="container col-md-4 home-creature-wrapper" data-name="<%= creature.name %>">
         <div class="col-md-4 home-creature-img media">
           <% if creature.image_path %>    
             <img class="media img-index" src="<%="#{creature.image_path}" %>" alt="...">
