@@ -9,10 +9,12 @@
   margin-left: 880px;
 }
 
-.btn.btn-success {
-  background-color: $btn-add-color;
-  color: $btn-text-color;
-  border: 0;
+.btn.btn-success,
+.btn.btn-danger
+{
+  background-color: transparent;;
+  color: $primary-color;
+  border: 1px solid $primary-color;
 }
 
 .btn.btn-red {

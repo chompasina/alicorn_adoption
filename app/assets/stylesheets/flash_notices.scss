@@ -1,13 +1,12 @@
 @import "variables";
 
-
-.flash-sucess {
-  position: relative;
-	display: inline;
-	float: left;
-	width: 100%;
+.flash-failure {
+  margin-top: -10px;
+  color: $flash-notice;
 }
 
-.full-width {
-  padding-left: 200px;
+.flash-notice, 
+.flash-sucess {
+  margin-top: auto;
+  color: $flash-notice;
 }

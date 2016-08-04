@@ -41,6 +41,6 @@ RSpec.feature "Admin wants to edit an existing creature" do
     visit admin_creatures_path
     
     expect(page.status_code).to eq(404)
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect(page).to have_content("Mythical creatures exist, but sadly this page does not.")
   end
 end
