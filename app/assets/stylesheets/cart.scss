@@ -10,17 +10,16 @@
 }
 
 .btn.btn-success,
-.btn.btn-danger
-{
-  background-color: transparent;;
-  color: $primary-color;
+.btn.btn-danger {
+  background-color: transparent;
   border: 1px solid $primary-color;
+  color: $primary-color;
 }
 
 .btn.btn-red {
   background-color: $btn-remove-color;
-  color: $btn-text-color;
   border: none;
+  color: $btn-text-color;
 }
 
 .btn.btn-danger, 

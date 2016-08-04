@@ -1,12 +1,12 @@
 @import "variables";
 
 .flash-failure {
-  margin-top: -10px;
   color: $flash-notice;
+  margin-top: -10px;
 }
 
 .flash-notice, 
 .flash-sucess {
-  margin-top: auto;
   color: $flash-notice;
+  margin-top: auto;
 }
