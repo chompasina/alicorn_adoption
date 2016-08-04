@@ -1,35 +1,26 @@
-<audio controls autoplay>
+<audio controls autoplay class="audio">
   <source src="/assets/angel.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
 <em><h1 class="page-title">Alicorn Adoption</h1></em>
 <em><h2 class="page-subtitle">All Creatures</h2></em>
-<div class="filter">
-  <label>Filter By Name</label>
+<% if current_admin? %>
+  <h4><%= link_to "Manage Creatures", admin_creatures_path %></h4>
+<% end %>
+</br>
+
+<div class="search-bar">
+  <label>Search By Name</label>
   <%= text_field :creature, :filter_name %>
-</div></br>
+</div>
+</br>
 
-<h4 class="page-edit"><% if current_admin? %>
-  <%= link_to "Edit Creatures", admin_creatures_path %>
-<% end %></h4>
-
-  <% @creatures.each do |creature| %>
-      <div class="container col-md-4 home-creature-wrapper" data-name="<%= creature.name %>">
-        <div class="col-md-4 home-creature-img media">
-          <% if creature.image_path %>    
-            <img class="media img-index" src="<%="#{creature.image_path}" %>" alt="...">
-          <% else %>
-            <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" alt="...">
-          <% end %>
-        
-        <em><%= link_to creature.name, creature_path(creature), class: "home-creature-name" %></em></p>    
-        <% if creature.retired %>
-          <p>This creature can no longer be sponsored!</p>
-        <% else %>
-          <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-creature" %>
-        <% end %>
-      </div>
+<% @creatures.each do |creature| %>
+  <div class="container col-md-4 home-creature-wrapper" data-name="<%= creature.name %>">
+    <%= render partial: "shared/creatures_img", locals: { creature: creature } %>
+    <%= render partial: "shared/creatures_details", locals: { creature: creature } %>
     </div>
-  <% end %>
+  </div>
+<% end %>
 

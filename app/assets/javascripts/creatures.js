@@ -6,7 +6,6 @@ $(document).ready(function(){
     var $currentName = this.value;
         
     $creatures.each(function(index, creature){
-      // alert("searching " + $(creature).data("name") + " for " + $currentName)
       if ($(creature).data("name").toLowerCase().indexOf($currentName) !== -1 ){
         $(creature).show();
       } else {
