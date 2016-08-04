@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :types, only: [:show]  
   resources :carts, only: [:create]
   resources :users, only: [:new, :create, :show, :destroy]
-  resources :orders, only: [:index, :create, :show]
+  resources :orders, only: [:index, :create, :show, :new, :create]
   
   namespace :order do 
     resources :charges, only: [:new, :create]

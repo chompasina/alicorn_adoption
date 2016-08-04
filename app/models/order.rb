@@ -39,4 +39,8 @@ class Order < ActiveRecord::Base
   def self.order_status(status)
     self.all.where(status: status).count
   end
+  
+  def update_status(status)
+    update_attributes(status: status.downcase)
+  end
 end

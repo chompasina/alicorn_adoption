@@ -50,15 +50,16 @@ RSpec.feature "Guest user needs to register to checkout" do
       expect(page).to have_content("Register")
       
       click_on "Register"
+      expect(current_path).to eq(new_user_path)
+
       fill_in "user_username", with: "Casey"
       fill_in "user_password", with: "password"
       fill_in "user_email", with: nil
       
-      expect(current_path).to eq(new_user_path)
       click_on "Create Account"
-  
-      expect(page).to have_content("Invalid Information")
+      
       expect(current_path).to eq(new_user_path)
+      expect(page).to have_content("Invalid Information")
     end
   end
 end

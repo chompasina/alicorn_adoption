@@ -23,17 +23,18 @@ RSpec.feature "Existing user has items in cart" do
     expect(current_path).to eq('/cart')
   
     click_button "Checkout"
-    click_button "Pay with Stripe"
-      
-    expect(current_path).to eq(orders_path)
-    expect(page).to_not have_content("Your cart is empty")
+  
     expect(page).to have_content("Order was successfully placed")
-    expect(page).to have_content("Order #{Order.last.id} Summary")
     within('.table') do
       expect(page).to have_content(creature.name)
       expect(page).to have_content(creature.price)
       expect(page).to have_content(user.orders.first.total_price)
     end
+    
+    click_link "My Orders"  
+    expect(current_path).to eq(orders_path)
+    expect(page).to_not have_content("Your cart is empty")
+    expect(page).to have_content("Order #{Order.last.id}")
   end
   
   scenario "they removed item in their cart and click checkout" do

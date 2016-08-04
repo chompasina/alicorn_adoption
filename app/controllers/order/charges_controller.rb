@@ -1,16 +1,16 @@
 class Order::ChargesController < Order::BaseController
-  
-  # def new
-  # end
-  
+
+  # 
   # def create
-  #   @order.update_attributes(cart_token: stripe_params["stripeToken"])
-  #   @order.process_payment
-  #   @order.save
-  #   redirect_to @order
+  # byebug
+  #   # @order.update_attributes(cart_token: stripe_params["stripeToken"])
+  #   # @order.process_payment
+  #   # @order.save
+  #   # redirect_to orders_path
+  #   @order = current_order
   #   flash[:notice] = "Order was successfully placed"
   # end
-  # 
+  # # 
   # private
   # 
   # def stripe_params

@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     elsif current_user && @cart.not_empty?
       create_order
       flash[:notice] = "Order was successfully placed"
-      render :index
+      redirect_to @order
     else  
       redirect_to login_path
     end
@@ -33,10 +33,11 @@ class OrdersController < ApplicationController
     params[:contents].each do |key, value|
       @order.creatures_orders.create(creature_id: key, quantity: value)
     end
+    session[:cart].clear
     @order.assign_total_price
   end
   
   def change_order_status
-    @order.update_attributes(status: "Paid")
+    @order.update_attributes(status: "paid")
   end
 end
