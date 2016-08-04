@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
         redirect_to dashboard_path(@user)
       end 
     else
-      flash[:notice] = "Invalid Login"
+      flash.now[:notice] = "Invalid Login"
       render :new      
     end
   end

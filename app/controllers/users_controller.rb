@@ -17,10 +17,10 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to dashboard_path(@user)
-      flash[:notice] = "You have successfully created an account!"
+      flash.now[:sucess] = "You have successfully created an account!"
     else
-      flash[:notice] = "Invalid Information"
-      redirect_to new_user_path
+      flash[:failure] = "Invalid Information"
+      redirect_to new_user_path  
     end
   end
   

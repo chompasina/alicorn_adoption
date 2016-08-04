@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
     Creature.find_by(name: name)
   end
   
+  def current_order
+    current_user.orders.last
+  end
+  
 end

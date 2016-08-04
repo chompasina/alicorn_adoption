@@ -10,6 +10,10 @@
   <%= text_field :creature, :filter_name %>
 </div></br>
 
+<h4 class="page-edit"><% if current_admin? %>
+  <%= link_to "Edit Creatures", admin_creatures_path %>
+<% end %></h4>
+
   <% @creatures.each do |creature| %>
       <div class="container col-md-4 home-creature-wrapper" data-name="<%= creature.name %>">
         <div class="col-md-4 home-creature-img media">
