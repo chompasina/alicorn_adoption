@@ -9,7 +9,7 @@ RSpec.feature "User needs to login to checkout" do
       
       expect(current_path).to eq('/dashboard')
       expect(page).to have_content("Logged in as Casey")
-      expect(page).to have_content(User.last.email)
+      expect(page).to have_content("casey@gmail.com")
       expect(page).to_not have_content("Login")
       expect(page).to have_content("Logout")
     end
@@ -25,7 +25,7 @@ RSpec.feature "User needs to login to checkout" do
       click_on "Cart: 1"
       click_link "Login"
       
-      expect(current_path).to eq(login_path)
+      expect(current_path).to eq("/login")
       
       fill_in "session_username", with: "Casey"
       fill_in "session_password", with: "password2"

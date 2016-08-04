@@ -16,11 +16,11 @@ RSpec.feature "Admin wants to delete their own account" do
     fill_in "session_password", with: "adminpw"
     click_button "Login"
     
-    expect(current_path).to eq(admin_dashboard_index_path)
+    expect(current_path).to eq("/admin/dashboard")
     
     click_link("Delete My Account")
     
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq("/")
     
     click_on "Login"
     fill_in "session_username", with: "admin"

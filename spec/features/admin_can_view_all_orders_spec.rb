@@ -14,10 +14,10 @@ RSpec.feature "Admin views all orders" do
     expect(page).to have_content("Ordered 1")
     expect(page).to have_content("Paid 2")
     expect(page).to have_content("Canceled 1")
-    expect(page).to have_link("Order: #{Order.first.id}")
-    expect(page).to have_link("Order: #{Order.second.id}")
-    expect(page).to have_link("Order: #{Order.third.id}")
-    expect(page).to have_link("Order: #{Order.fourth.id}")
-    expect(page).to have_link("Order: #{Order.fifth.id}")
+    expect(page).to have_link("Order: 1")
+    expect(page).to have_link("Order: 2")
+    expect(page).to have_link("Order: 3")
+    expect(page).to have_link("Order: 4")
+    expect(page).to have_link("Order: 5")
   end
 end

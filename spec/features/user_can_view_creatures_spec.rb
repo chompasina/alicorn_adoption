@@ -21,8 +21,8 @@ RSpec.feature "Visitor sees the home page of the application" do
     visit root_path
     click_on "Unicorn"
 
-    expect(page).to have_content creature_1.name
+    expect(page).to have_content("Unicorn")
     page.should have_button("Sponsor me for $200.00!")
-    expect(current_path).to eq(creature_path(creature_1))
+    expect(current_path).to eq("/creatures/20")
   end
 end

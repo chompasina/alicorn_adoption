@@ -7,7 +7,7 @@ RSpec.feature "Visitor views type page" do
     creature_2 = type.creatures.create!(name: "Centaur", price: 150.00)
     
     visit root_path
-    expect(page).to have_link type.name.capitalize, href: "/#{type.name}"
+    expect(page).to have_link type.name.capitalize, href: "/terrestrial"
     
     click_on "Terrestrial" 
     
@@ -25,12 +25,12 @@ RSpec.feature "Visitor views type page" do
       visit root_path
       click_on "Terrestrial"
       
-      expect(page).to have_link sea_type.name.capitalize, href: "/#{sea_type.name}"
-      expect(page).to have_link land_type.name.capitalize, href: "/#{land_type.name}"
+      expect(page).to have_link sea_type.name.capitalize, href: "/aquatic"
+      expect(page).to have_link land_type.name.capitalize, href: "/terrestrial"
 
       click_on "Aquatic"
       
-      expect(page).to have_link land_type.name.capitalize, href: "/#{land_type.name}"
+      expect(page).to have_link land_type.name.capitalize, href: "/terrestrial"
       expect(page).to have_content("Nessie")
     end
   end
