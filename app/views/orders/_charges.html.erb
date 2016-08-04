@@ -18,14 +18,11 @@
 <button id="customButton" class="btn-checkout">Pay with Stripe</button>
 
 <script>
-// debugger
   var handler = StripeCheckout.configure({
     key: "<%= Rails.configuration.stripe[:publishable_key] %>",
     image: 'http://67.media.tumblr.com/30b1b0d0a42bca3759610242a1ff0348/tumblr_nnjxy1GQAA1tpo3v2o1_540.jpg',
     locale: 'auto',
     token: function(token) {
-      // You can access the token ID with `token.id`.
-      // Get the token ID to your server-side code for use.
     }
   });
   $('#customButton').on('click', function(e) {

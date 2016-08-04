@@ -14,22 +14,16 @@
   <%= link_to "Edit Creatures", admin_creatures_path %>
 <% end %></h4>
 
-  <% @creatures.each do |creature| %>
-      <div class="container col-md-4 home-creature-wrapper" data-name="<%= creature.name %>">
-        <div class="col-md-4 home-creature-img media">
-          <% if creature.image_path %>    
-            <img class="media img-index" src="<%="#{creature.image_path}" %>" alt="...">
-          <% else %>
-            <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" alt="...">
-          <% end %>
-        
-        <em><%= link_to creature.name, creature_path(creature), class: "home-creature-name" %></em></p>    
-        <% if creature.retired %>
-          <p>This creature can no longer be sponsored!</p>
-        <% else %>
-          <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-creature" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+<%= render "shared/creatures" %>
+
+<div class="container col-md-4 home-creature-wrapper" data-name="<%= creature.name %>">
+  <div class="col-md-4 home-creature-img media">
+    <em><%= link_to creature.name, creature_path(creature), class: "home-creature-name" %></em></p>    
+    <% if creature.retired %>
+      <p>This creature can no longer be sponsored!</p>
+    <% else %>
+      <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-creature" %>
+    <% end %>
+  </div>
+</div>
 
