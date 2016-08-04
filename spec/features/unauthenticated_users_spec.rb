@@ -12,7 +12,7 @@ RSpec.feature "Registered user " do
     
     visit cart_path
     click_button "Login to Checkout"
-    expect(current_path).to eq("/login") #with a link to create an account in case that are not registered users
+    expect(current_path).to eq("/login")
   end
   
   scenario "they cannot view the admin dashboard" do
