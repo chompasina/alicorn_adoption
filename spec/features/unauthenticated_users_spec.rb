@@ -20,7 +20,7 @@ RSpec.feature "Registered user " do
     visit '/admin/dashboard'
     
     expect(page.status_code).to eq(404)
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect(page).to have_content("Mythical creatures exist, but sadly this page does not.")
     
     expect(page).to_not have_content("Admin Dashboard")
   end

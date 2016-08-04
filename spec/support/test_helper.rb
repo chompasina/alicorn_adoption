@@ -59,11 +59,11 @@ def create_orders
   create_user
   create_user_2
   
-  user1_order1 = User.first.orders.create(status: "Ordered")
-  user1_order2 = User.first.orders.create(status: "Paid")
-  user1_order3 = User.first.orders.create(status: "Completed")
-  user2_order1 = User.last.orders.create(status: "Paid")
-  user2_order2 = User.last.orders.create(status: "Canceled")
+  user1_order1 = User.first.orders.create(status: "ordered")
+  user1_order2 = User.first.orders.create(status: "paid")
+  user1_order3 = User.first.orders.create(status: "completed")
+  user2_order1 = User.last.orders.create(status: "paid")
+  user2_order2 = User.last.orders.create(status: "canceled")
   
   user1_order1.creatures_orders.create!(
     creature_id: Creature.first.id,

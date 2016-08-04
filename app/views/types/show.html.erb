@@ -1,24 +1,10 @@
+<h1 class="page-type-title"><%= @type.name %> Creatures</h1>
 
-<% if @type.name == "aquatic" %>
-  <body class="aquatic">
-<% elsif @type.name == "terrestrial" %>
-  <body class="terrestrial">
-<% else @type.name == "aerial" %>
-  <body class="aerial">
-<% end %>        
-
-  <h1 class="type-title"><%= @type.name %></h1>
-  <% @creatures.each do |creature| %>
-  <div class="container col-md-4 home-creature-wrapper">
-    <div class="col-md-4 home-creature-img media">
-      <img class="media img-index" src="<%="assets/#{creature.name}.png" %>" >
-      <em><%= link_to creature.name, creature_path(creature), class: "type-creature-name" %></em></p>    
-      <% if creature.retired %>
-        <p>This creature can no longer be sponsored!</p>
-      <% else %>
-        <%= button_to "Sponsor me", carts_path({creature_id: creature.id}), class: "btn btn-type-creature" %>
-      <% end %>
-    </div>
+<% @creatures.each do |creature| %>
+<div class="container col-md-4 home-creature-wrapper">
+    <%= render partial: "shared/creatures_img", locals: { creature: creature } %>
+    <%= render partial: "shared/creatures_details", locals: { creature: creature } %>
   </div>
-  <% end %>
-</body>
+</div>
+<% end %>
+

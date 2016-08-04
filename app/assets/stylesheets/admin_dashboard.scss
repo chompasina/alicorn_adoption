@@ -4,6 +4,18 @@
   padding-left: 0;
 }
 
+.btn-admin {
+  background-color: transparent;
+  border: 1px solid $btn-color;
+  color: $btn-color;
+  width: 200px;
+}
+
+.btn-admin:hover {
+  border: 1px solid $primary-color;
+  color: $primary-color;
+}
+
 #admin-account-target {
   display: none;
 }

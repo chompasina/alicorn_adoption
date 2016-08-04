@@ -8,13 +8,11 @@
 		
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-      
-          <li><%= link_to "All Creatures", "/" %></li>
-            <% creature_types.each do |type| %>
-              <li class="sidebar-list" role="presentation"><%= link_to type.name.capitalize, "/#{type.name}" %></li>
-            <% end %>
+        <li><%= link_to "All Creatures", "/" %></li>
+          <% creature_types.each do |type| %>
+            <li class="sidebar-list" role="presentation"><%= link_to type.name.capitalize, "/#{type.name}" %></li>
+          <% end %>
 			
-				</li>
         <% if current_admin? %>
           <li><%= link_to "Admin Account", admin_dashboard_index_path %></li>
         <% else %>

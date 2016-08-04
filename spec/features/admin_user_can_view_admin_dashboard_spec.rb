@@ -31,7 +31,7 @@ RSpec.feature "Only admin can access admin dashboard page" do
 
       expect(page.status_code).to eq(404)
       expect(page).to have_content(
-        "The page you were looking for doesn't exist."
+        "Mythical creatures exist, but sadly this page does not."
       )
     end
   end
@@ -43,7 +43,7 @@ RSpec.feature "Only admin can access admin dashboard page" do
 
       expect(page.status_code).to eq(404)
       expect(page).to have_content(
-        "The page you were looking for doesn't exist."
+        "Mythical creatures exist, but sadly this page does not."
       )
     end
   end

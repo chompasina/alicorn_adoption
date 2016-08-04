@@ -1,14 +1,14 @@
-<button id="admin-orders">Alicorn Orders</button>
+<button id="admin-orders" class="btn-admin">Alicorn Orders</button>
 <div id="admin-orders-target">
 <hr>
   <h3>Breakdown By Status</h3>
   <div class="admin-order-stats col-md-12">
   <div class="admin-order-stats col-md-6">
     <ul class="list-group">
-      <li class="list-group-item">Completed <span class="badge"><%= @orders.order_status("Completed") %> </span> </li>
-      <li class="list-group-item">Ordered <span class="badge"><%= @orders.order_status("Ordered") %> </li>
-      <li class="list-group-item">Paid <span class="badge"><%= @orders.order_status("Paid") %> </li>
-      <li class="list-group-item">Canceled <span class="badge"><%= @orders.order_status("Canceled") %> </li>
+      <li class="list-group-item">Completed <span class="badge"><%= @orders.order_status("completed") %> </span> </li>
+      <li class="list-group-item">Ordered <span class="badge"><%= @orders.order_status("ordered") %> </li>
+      <li class="list-group-item">Paid <span class="badge"><%= @orders.order_status("paid") %> </li>
+      <li class="list-group-item">Canceled <span class="badge"><%= @orders.order_status("canceled") %> </li>
     </ul>
   </div>
 </div>

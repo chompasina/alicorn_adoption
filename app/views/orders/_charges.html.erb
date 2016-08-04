@@ -1,5 +1,4 @@
 <%= form_tag orders_path do %>
-<!-- <%#= form_tag("/orders", method: "get") do %> -->
 <article>
   <% if flash[:error].present? %>
     <div id="error_explanation">
@@ -18,7 +17,6 @@
 <button id="customButton" class="btn-checkout">Pay with Stripe</button>
 
 <script>
-// debugger
   var handler = StripeCheckout.configure({
     key: "<%= Rails.configuration.stripe[:publishable_key] %>",
     image: 'http://67.media.tumblr.com/30b1b0d0a42bca3759610242a1ff0348/tumblr_nnjxy1GQAA1tpo3v2o1_540.jpg',
@@ -39,22 +37,12 @@
   
   $('#customButton').on('click', function() {
     "<%= @order.update_status('paid') %>"
-    // var $cartStuff = $('#cartCounter').children()[1].text.split(" ")[1]
-    // 
-    // console.log("CART STUFF")
-    // if ($('#cartCounter').children()[1].text.split(" ")[1] === 0) {
-    //   console.log("OK")
-    // }
     $('#customButton').hide();
   });
   
   $(window).on('popstate', function() {
     handler.close();
   });
-  
-  // $('#submitButton').on('click', function(e) {
-  // 
-  // });
   
 </script>
 

@@ -49,7 +49,7 @@
   <% if current_user %>
     <%= button_to "Checkout", orders_path(contents: session[:cart]), method: :create, class: "btn-checkout" %>
   <% else %>
-    <%= button_to "Login to Checkout", login_path, method: :get, class: "btn-checkout" %>
+    <%= button_to "Login to Checkout", login_path, method: :get, class: "btn-checkout" %></br>
     <%= button_to "Register to Checkout", new_user_path, method: :get,  class: "btn-checkout" %>
   <% end %>
 </div>
