@@ -45,9 +45,8 @@ RSpec.feature "Authenticated user cannot see admin privileges" do
       
       visit orders_path
       expect(page).to have_content("Casey's Order History")
-      expect(page).to have_content("Order #{user1_order1.id}")
+      expect(page).to have_content("Order 6")
       expect(page).to_not have_content("Mozzie's Order History")
-      expect(page).to_not have_content("Order #{user2_order1.id}")
       
       visit admin_dashboard_index_path
       expect(page.status_code).to eq(404)

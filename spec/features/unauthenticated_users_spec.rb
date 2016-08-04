@@ -7,12 +7,12 @@ RSpec.feature "Registered user " do
     visit dashboard_path
     
     expect(page).to have_content("Access Forbidden (403)")
-    expect(page).to_not have_content(user.username)
-    expect(page).to_not have_content(user.email)
+    expect(page).to_not have_content("Mozzie")
+    expect(page).to_not have_content("mozzie@gmail.com")
     
     visit cart_path
     click_button "Login to Checkout"
-    expect(current_path).to eq(login_path) #with a link to create an account in case that are not registered users
+    expect(current_path).to eq("/login") #with a link to create an account in case that are not registered users
   end
   
   scenario "they cannot view the admin dashboard" do

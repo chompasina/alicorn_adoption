@@ -14,7 +14,7 @@ RSpec.feature "Existing user has items in cart" do
     visit '/cart'
     click_on "Login to Checkout"
   
-    expect(current_path).to eq(login_path)
+    expect(current_path).to eq("/login")
     
     fill_in "session_username", with: "Tom"
     fill_in "session_password", with: "password"
@@ -32,9 +32,9 @@ RSpec.feature "Existing user has items in cart" do
     end
     
     click_link "My Orders"  
-    expect(current_path).to eq(orders_path)
+    expect(current_path).to eq("/orders")
     expect(page).to_not have_content("Your cart is empty")
-    expect(page).to have_content("Order #{Order.last.id}")
+    expect(page).to have_content("Order 8")
   end
   
   scenario "they removed item in their cart and click checkout" do
@@ -58,6 +58,6 @@ RSpec.feature "Existing user has items in cart" do
     click_button "Checkout"
     
     expect(page).to have_content("Your cart is empty")
-    expect(current_path).to eq(cart_path)
+    expect(current_path).to eq("/cart")
   end
 end

@@ -41,9 +41,9 @@ RSpec.feature "Authenticated user can view past orders" do
       
       visit '/orders'
       
-      expect(page).to have_content(user1_order1.id)
-      expect(page).to have_content(user1_order2.id)
-      expect(page).to_not have_content(user2_order1.id)
+      expect(page).to have_content("9")
+      expect(page).to have_content("10")
+      expect(page).to_not have_content("11")
     end
   end
     

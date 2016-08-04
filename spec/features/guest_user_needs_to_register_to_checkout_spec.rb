@@ -18,9 +18,9 @@ RSpec.feature "Guest user needs to register to checkout" do
       fill_in "user_password", with: "password"
       fill_in "user_email", with: "casey@gmail.com"
       
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq("/users/new")
       click_on "Create Account"
-      expect(current_path).to eq(dashboard_path(User.first))
+      expect(current_path).to eq("/dashboard")
       
       visit cart_path
       
@@ -33,7 +33,7 @@ RSpec.feature "Guest user needs to register to checkout" do
       click_on "Logout"
       expect(page).to_not have_content("Logout")
       expect(page).to have_content("Successfully logged out")
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq("/")
     end
   end
   
@@ -50,7 +50,7 @@ RSpec.feature "Guest user needs to register to checkout" do
       expect(page).to have_content("Register")
       
       click_on "Register"
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq("/users/new")
 
       fill_in "user_username", with: "Casey"
       fill_in "user_password", with: "password"
@@ -58,7 +58,7 @@ RSpec.feature "Guest user needs to register to checkout" do
       
       click_on "Create Account"
       
-      expect(current_path).to eq(new_user_path)
+      expect(current_path).to eq("/users/new")
       expect(page).to have_content("Invalid Information")
     end
   end

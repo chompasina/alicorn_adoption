@@ -16,7 +16,7 @@ RSpec.feature "Admin user can create another admin" do
       fill_in "Username", with: new_admin.username
       click_button "Create Admin"
       
-      expect(page).to have_content("#{new_admin.username} is now an admin")
+      expect(page).to have_content("user is now an admin")
     end
   end
   
